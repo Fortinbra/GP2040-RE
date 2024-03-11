@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+.pio
+.vscode/
+.cache/
+node_modules/
+build/
