@@ -22,7 +22,9 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(${PROJECT_NAME}
-main.cpp )
+main.cpp
+NESController.cpp
+)
 
 pico_set_program_name(${PROJECT_NAME} "GP2040-RE")
 pico_set_program_version(${PROJECT_NAME} "0.1")
@@ -42,16 +44,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
 )
-
-# Add any user requested libraries
-target_link_libraries(${PROJECT_NAME} 
-        hardware_spi
-        hardware_i2c
-        hardware_dma
-        hardware_pio
-        hardware_timer
-        hardware_clocks
-        )
 
 pico_add_extra_outputs(${PROJECT_NAME})
 

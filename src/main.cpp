@@ -5,6 +5,9 @@
 #include <string.h>
 #include "hardware/vreg.h"
 #include "hardware/clocks.h"
+#include "headers/GamepadState.h"
+#include "headers/I2CData.h"
+#include "headers/NESController.h"
 
 #define NOW() to_us_since_boot(get_absolute_time())
 #define LOG(start) printf("%llu\n", NOW() - start);
@@ -15,25 +18,40 @@
 #define I2C_BAUDRATE 1000000 // 1 MHz
 #define I2C_SLAVE_SDA_PIN 20
 #define I2C_SLAVE_SCL_PIN 21
-#define GAMEPAD_JOYSTICK_MID 0x7FFF
 
-struct GamepadState
+void processI2CData(I2CData *data)
 {
-    uint8_t dpad{0};
-    uint16_t buttons{0};
-    uint16_t aux{0};
-    uint16_t lx{GAMEPAD_JOYSTICK_MID};
-    uint16_t ly{GAMEPAD_JOYSTICK_MID};
-    uint16_t rx{GAMEPAD_JOYSTICK_MID};
-    uint16_t ry{GAMEPAD_JOYSTICK_MID};
-    uint8_t lt{0};
-    uint8_t rt{0};
-};
-struct I2CData
-{
-    GamepadState state;
-    uint64_t timestamp = 0;
-};
+    printf("Processing I2CData with timestamp: %llu\n", data->timestamp);
+    bool isPin6High = gpio_get(6);
+    bool isPin7High = gpio_get(7);
+
+    if (isPin6High && isPin7High)
+    {
+        // Both pin 6 and pin 7 are high
+        // Add your code here for this case
+    }
+    else if (isPin6High)
+    {
+        // Only pin 6 is high
+        // Add your code here for this case
+    }
+    else if (isPin7High)
+    {
+        // Only pin 7 is high
+        // Add your code here for this case
+    }
+    else
+    {
+        // Both pins are low, enable NES mode
+        NESController nesController(2, 1, 3); // pin0 as latch, pin1 as clock, pin2 as data
+
+        // Translate the gamepad data into NES format
+        uint8_t nesData = nesController.translateToNesFormat(data);
+
+        // Send the data to the NES system
+        nesController.sendToNesSystem(nesData);
+    }
+}
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
 {
     static uint8_t buf[256] = {0};
@@ -55,6 +73,7 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
         LOGD(diff, receivedIndex);
         receivedIndex = 0;
         memcpy(buf, 0, 256);
+        processI2CData(data);
     }
     break;
     default:
@@ -74,6 +93,7 @@ void setup_slave()
     i2c_init(i2c0, I2C_BAUDRATE);
     i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
 }
+
 int main()
 {
     stdio_init_all();
