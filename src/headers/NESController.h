@@ -2,15 +2,16 @@
 #define NESCONTROLLER_H
 
 #include "I2CData.h"
+#include "IController.h"
 
-class NESController
+class NESController : public IController
 {
 public:
 	NESController(int latchPin, int clockPin, int dataPin);
 
-	uint8_t translateToNesFormat(I2CData *data);
+	uint16_t translateToFormat(I2CData *data) override;
 
-	void sendToNesSystem(uint8_t data);
+	void sendToSystem(uint16_t data) override;
 
 private:
 	int latchPin;

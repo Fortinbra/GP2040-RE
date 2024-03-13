@@ -8,6 +8,7 @@
 #include "headers/GamepadState.h"
 #include "headers/I2CData.h"
 #include "headers/NESController.h"
+#include "headers/SNESController.h"
 
 #define NOW() to_us_since_boot(get_absolute_time())
 #define LOG(start) printf("%llu\n", NOW() - start);
@@ -37,8 +38,9 @@ void processI2CData(I2CData *data)
     }
     else if (isPin7High)
     {
-        // Only pin 7 is high
-        // Add your code here for this case
+        SNESController snesController(2, 1, 3);
+        uint8_t snesData = snesController.translateToFormat(data);
+        snesController.sendToSystem(snesData);
     }
     else
     {
@@ -46,10 +48,10 @@ void processI2CData(I2CData *data)
         NESController nesController(2, 1, 3); // pin0 as latch, pin1 as clock, pin2 as data
 
         // Translate the gamepad data into NES format
-        uint8_t nesData = nesController.translateToNesFormat(data);
+        uint8_t nesData = nesController.translateToFormat(data);
 
         // Send the data to the NES system
-        nesController.sendToNesSystem(nesData);
+        nesController.sendToSystem(nesData);
     }
 }
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
