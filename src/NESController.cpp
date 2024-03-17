@@ -21,13 +21,13 @@ const uint8_t NES_BUTTON_RIGHT = 0x80;
 NESController::NESController(int latchPin, int clockPin, int dataPin)
     : latchPin(latchPin), clockPin(clockPin), dataPin(dataPin) {}
 
-uint8_t NESController::translateToNesFormat(I2CData *data)
+uint16_t NESController::translateToFormat(I2CData *data)
 {
 
     // Get the GamepadState from the State property of the I2CData object
     GamepadState gamepadState = data->state;
     // Convert the GamepadState D-pad to NES D-pad
-    uint8_t nesDpad = 0x00;
+    uint16_t nesDpad = 0x00;
     if ((gamepadState.dpad & GAMEPAD_MASK_UP) == GAMEPAD_MASK_UP)
     {
         nesDpad |= NES_BUTTON_UP;
@@ -45,7 +45,7 @@ uint8_t NESController::translateToNesFormat(I2CData *data)
         nesDpad |= NES_BUTTON_RIGHT;
     }
     // Convert the GamepadState buttons to NES buttons
-    uint8_t nesButtons = 0x00;
+    uint16_t nesButtons = 0x00;
     if ((gamepadState.buttons & GAMEPAD_MASK_B1) == GAMEPAD_MASK_B1)
     {
         nesButtons |= NES_BUTTON_A;
@@ -64,13 +64,13 @@ uint8_t NESController::translateToNesFormat(I2CData *data)
     }
 
     // Combine the NES D-pad and buttons
-    uint8_t nesData = nesDpad | nesButtons;
+    uint16_t nesData = nesDpad | nesButtons;
 
     // Return the translated NES data
     return nesData;
 }
 
-void NESController::sendToNesSystem(uint8_t data)
+void NESController::sendToSystem(uint16_t data)
 {
     // Set the latch pin low to start the transmission
     gpio_put(latchPin, 0);
