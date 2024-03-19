@@ -25,7 +25,6 @@ add_executable(${PROJECT_NAME}
 main.cpp
 NESController.cpp
 SNESController.cpp
-PS1Controller.cpp
 )
 
 pico_set_program_name(${PROJECT_NAME} "GP2040-RE")

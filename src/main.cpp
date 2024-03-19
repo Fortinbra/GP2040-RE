@@ -9,6 +9,7 @@
 #include "headers/I2CData.h"
 #include "headers/NESController.h"
 #include "headers/SNESController.h"
+#include <pico/multicore.h>
 
 #define NOW() to_us_since_boot(get_absolute_time())
 #define LOG(start) printf("%llu\n", NOW() - start);
@@ -17,42 +18,19 @@
 
 #define I2C_SLAVE_ADDR 0x17
 #define I2C_BAUDRATE 1000000 // 1 MHz
-#define I2C_SLAVE_SDA_PIN 20
-#define I2C_SLAVE_SCL_PIN 21
+#define I2C_SLAVE_SDA_PIN 0
+#define I2C_SLAVE_SCL_PIN 1
 
 void processI2CData(I2CData *data)
 {
-    printf("Processing I2CData with timestamp: %llu\n", data->timestamp);
-    bool isPin6High = gpio_get(6);
-    bool isPin7High = gpio_get(7);
+    // printf("Processing I2CData with timestamp: %llu\n", data->timestamp);
+    NESController nesController(2, 3, 4);
 
-    if (isPin6High && isPin7High)
-    {
-        // Both pin 6 and pin 7 are high
-        // Add your code here for this case
-    }
-    else if (isPin6High)
-    {
-        // Only pin 6 is high
-        // Add your code here for this case
-    }
-    else if (isPin7High)
-    {
-        SNESController snesController(2, 1, 3);
-        uint8_t snesData = snesController.translateToFormat(data);
-        snesController.sendToSystem(snesData);
-    }
-    else
-    {
-        // Both pins are low, enable NES mode
-        NESController nesController(2, 1, 3); // pin0 as latch, pin1 as clock, pin2 as data
+    // Translate the gamepad data into NES format
+    uint16_t nesData = nesController.translateToFormat(data);
 
-        // Translate the gamepad data into NES format
-        uint8_t nesData = nesController.translateToFormat(data);
-
-        // Send the data to the NES system
-        nesController.sendToSystem(nesData);
-    }
+    // Send the data to the NES system
+    nesController.sendToSystem(nesData);
 }
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
 {
@@ -72,10 +50,10 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
     {
         I2CData *data = reinterpret_cast<I2CData *>(buf);
         uint64_t diff = NOW() - data->timestamp;
-        LOGD(diff, receivedIndex);
+        // LOGD(diff, receivedIndex);
         receivedIndex = 0;
         memcpy(buf, 0, 256);
-        processI2CData(data);
+        multicore_fifo_push_timeout_us(reinterpret_cast<uint32_t>(&data), 0);
     }
     break;
     default:
@@ -96,15 +74,29 @@ void setup_slave()
     i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
 }
 
+void core1_entry()
+{
+    while (true)
+    {
+        // Wait for a flag to be set by the main core
+        I2CData *data;
+        while (!multicore_fifo_pop_timeout_us(0, reinterpret_cast<uint32_t *>(&data)))
+        {
+        }
+
+        // Process the I2C data
+        processI2CData(data);
+    }
+}
+
 int main()
 {
     stdio_init_all();
+    multicore_launch_core1(core1_entry);
     sleep_ms(3000);
-
     setup_slave();
-
     sleep_ms(2000);
-    printf("I2C Master/Slave example\n");
+    printf("I2C Retro PoC\n");
     printf("I2C rate set to %u KHz\n", I2C_BAUDRATE / 1000);
     printf("Starting I2C transfer\n");
     sleep_ms(1000);
