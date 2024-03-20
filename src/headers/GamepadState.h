@@ -2,11 +2,30 @@
 #define GAMEPADSTATE_H
 
 #include <pico/stdlib.h>
-#define GAMEPAD_MASK_DPAD (GAMEPAD_MASK_UP | GAMEPAD_MASK_DOWN | GAMEPAD_MASK_LEFT | GAMEPAD_MASK_RIGHT)
+#define GAMEPAD_BUTTON_COUNT 14
 
-#define GAMEPAD_JOYSTICK_MIN 0
-#define GAMEPAD_JOYSTICK_MID 0x7FFF
-#define GAMEPAD_JOYSTICK_MAX 0xFFFF
+/*
+	Gamepad button mapping table:
+
+	+--------+--------+---------+----------+----------+--------+
+	| GP2040 | XInput | Switch  | PS3      | DInput   | Arcade |
+	+--------+--------+---------+----------|----------+--------+
+	| B1     | A      | B       | Cross    | 2        | K1     |
+	| B2     | B      | A       | Circle   | 3        | K2     |
+	| B3     | X      | Y       | Square   | 1        | P1     |
+	| B4     | Y      | X       | Triangle | 4        | P2     |
+	| L1     | LB     | L       | L1       | 5        | P4     |
+	| R1     | RB     | R       | R1       | 6        | P3     |
+	| L2     | LT     | ZL      | L2       | 7        | K4     |
+	| R2     | RT     | ZR      | R2       | 8        | K3     |
+	| S1     | Back   | -       | Select   | 9        | Coin   |
+	| S2     | Start  | +       | Start    | 10       | Start  |
+	| L3     | LS     | LS      | L3       | 11       | LS     |
+	| R3     | RS     | RS      | R3       | 12       | RS     |
+	| A1     | Guide  | Home    | -        | 13       | -      |
+	| A2     | -      | Capture | -        | 14       | -      |
+	+--------+--------+---------+----------+----------+--------+
+*/
 
 #define GAMEPAD_MASK_UP (1U << 0)
 #define GAMEPAD_MASK_DOWN (1U << 1)
@@ -27,6 +46,35 @@
 #define GAMEPAD_MASK_R3 (1U << 11)
 #define GAMEPAD_MASK_A1 (1U << 12)
 #define GAMEPAD_MASK_A2 (1U << 13)
+
+// For detecting dpad as buttons
+
+#define GAMEPAD_MASK_DU (1UL << 16)
+#define GAMEPAD_MASK_DD (1UL << 17)
+#define GAMEPAD_MASK_DL (1UL << 18)
+#define GAMEPAD_MASK_DR (1UL << 19)
+
+// For detecting analog sticks as buttons
+
+#define GAMEPAD_MASK_LX (1UL << 20)
+#define GAMEPAD_MASK_LY (1UL << 21)
+#define GAMEPAD_MASK_RX (1UL << 22)
+#define GAMEPAD_MASK_RY (1UL << 23)
+
+#define GAMEPAD_MASK_DPAD (GAMEPAD_MASK_UP | GAMEPAD_MASK_DOWN | GAMEPAD_MASK_LEFT | GAMEPAD_MASK_RIGHT)
+
+#define GAMEPAD_JOYSTICK_MIN 0
+#define GAMEPAD_JOYSTICK_MID 0x7FFF
+#define GAMEPAD_JOYSTICK_MAX 0xFFFF
+
+#define GAMEPAD_TRIGGER_MIN 0
+#define GAMEPAD_TRIGGER_MID 0x7F
+#define GAMEPAD_TRIGGER_MAX 0xFF
+
+/**
+ * @brief AUX defines --- gamepad state that doesn't translate to an output button/dpad/etc.
+ */
+#define AUX_MASK_FUNCTION (1U << 15)
 
 const uint8_t dpadMasks[] =
 	{

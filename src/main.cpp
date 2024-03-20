@@ -11,17 +11,17 @@
 #include "headers/SNESController.h"
 #include <pico/multicore.h>
 
-#define NOW() to_us_since_boot(get_absolute_time())
-#define LOG(start) printf("%llu\n", NOW() - start);
-#define LOGD(size, diff) printf("%i, %llu\n", diff, size)
-#define LOGD_H() printf("size, micros\n");
-
 #define I2C_SLAVE_ADDR 0x17
 #define I2C_BAUDRATE 1000000 // 1 MHz
 #define I2C_SLAVE_SDA_PIN 0
 #define I2C_SLAVE_SCL_PIN 1
+#ifndef GPCOMMS_BUFFER_SIZE
+#define GPCOMMS_BUFFER_SIZE 100
+#endif
+GamepadState gamepadState;
+Mask_t gpioState = 0;
 
-void processI2CData(I2CData *data)
+void processI2CData(GamepadState data)
 {
     // printf("Processing I2CData with timestamp: %llu\n", data->timestamp);
     NESController nesController(2, 3, 4);
@@ -32,10 +32,59 @@ void processI2CData(I2CData *data)
     // Send the data to the NES system
     nesController.sendToSystem(nesData);
 }
+
+void handleStatus(uint8_t *payload)
+{
+    printf("Received message payload value: %s\n", payload);
+    (void)0;
+}
+
+void handleState(uint8_t *payload)
+{
+    static GPComms_State gpState;
+    memcpy(&gpState, payload, sizeof(GPComms_State));
+    gamepadState = gpState.gamepadState;
+    gpioState = gpState.gpioState;
+    processI2CData(gamepadState);
+}
+
+void handleMessage(uint8_t *payload)
+{
+    printf("Received message payload value: %s\n", payload);
+    (void)0;
+}
+void handleBuffer(uint8_t *buf, int size)
+{
+    uint8_t command = buf[0];
+    uint8_t *payload = &buf[1];
+
+    switch (command)
+    {
+    case GPCMD_STATE:
+        handleState(payload);
+        break;
+
+    case GPCMD_STATUS:
+        handleStatus(payload);
+        break;
+
+    case GPCMD_MESSAGE:
+        handleMessage(payload);
+        break;
+
+    case GPCMD_ACK:
+        break;
+
+    case GPCMD_UNKNOWN:
+    default:
+        break;
+    }
+}
+
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
 {
-    static uint8_t buf[256] = {0};
-    static int32_t receivedIndex = 0;
+    static uint8_t buf[GPCOMMS_BUFFER_SIZE] = {0};
+    static uint8_t receivedIndex = 0;
 
     switch (event)
     {
@@ -48,12 +97,9 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
         break;
     case I2C_SLAVE_FINISH:
     {
-        I2CData *data = reinterpret_cast<I2CData *>(buf);
-        uint64_t diff = NOW() - data->timestamp;
-        // LOGD(diff, receivedIndex);
+        handleBuffer(buf, receivedIndex);
         receivedIndex = 0;
-        memcpy(buf, 0, 256);
-        multicore_fifo_push_timeout_us(reinterpret_cast<uint32_t>(&data), 0);
+        break;
     }
     break;
     default:
@@ -74,25 +120,9 @@ void setup_slave()
     i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
 }
 
-void core1_entry()
-{
-    while (true)
-    {
-        // Wait for a flag to be set by the main core
-        I2CData *data;
-        while (!multicore_fifo_pop_timeout_us(0, reinterpret_cast<uint32_t *>(&data)))
-        {
-        }
-
-        // Process the I2C data
-        processI2CData(data);
-    }
-}
-
 int main()
 {
     stdio_init_all();
-    multicore_launch_core1(core1_entry);
     sleep_ms(3000);
     setup_slave();
     sleep_ms(2000);

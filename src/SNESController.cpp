@@ -17,11 +17,11 @@ const uint8_t SNES_BUTTON_RIGHT = 0x800;
 SNESController::SNESController(int latchPin, int clockPin, int dataPin)
     : latchPin(latchPin), clockPin(clockPin), dataPin(dataPin) {}
 
-uint16_t SNESController::translateToFormat(I2CData *data)
+uint16_t SNESController::translateToFormat(GamepadState data)
 
 {
     // Get the GamepadState from the State property of the I2CData object
-    GamepadState gamepadState = data->state;
+    GamepadState gamepadState = data;
     uint16_t snesPad = 0x00;
     if ((gamepadState.dpad & GAMEPAD_MASK_UP) == GAMEPAD_MASK_UP)
     {
