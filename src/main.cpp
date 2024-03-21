@@ -53,6 +53,7 @@ void handleMessage(uint8_t *payload)
     printf("Received message payload value: %s\n", payload);
     (void)0;
 }
+
 void handleBuffer(uint8_t *buf, int size)
 {
     uint8_t command = buf[0];
