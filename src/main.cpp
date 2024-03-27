@@ -57,6 +57,7 @@ void handleMessage(uint8_t *payload)
 {
     (void)0;
 }
+
 void handleBuffer(uint8_t *buf, int size)
 {
     uint8_t command = buf[0];
