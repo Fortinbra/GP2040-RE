@@ -34,8 +34,9 @@ uint16_t NESController::translateToFormat(GamepadState data)
     GamepadState gamepadState = data;
 
     // Print the GamepadState
-    printf("GamepadState: dpad=%02X, buttons=%02X\n", gamepadState.dpad, gamepadState.buttons);
-
+    char message[256];
+    sprintf(message, "GamepadState: dpad=%02X, buttons=%02X\n", gamepadState.dpad, gamepadState.buttons);
+    uart_puts(0, message);
     // Convert the GamepadState D-pad to NES D-pad
     uint16_t nesPad = 0x00;
     if (gamepadState.dpad & GAMEPAD_MASK_UP)

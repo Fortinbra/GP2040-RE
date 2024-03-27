@@ -54,12 +54,12 @@ struct GPComms_Message
 	char *message;
 };
 
-enum GPComms_Command
+typedef enum _GPComms_Command
 {
-	GPCMD_UNKNOWN = 0x00,
-	GPCMD_STATE = 0x01,
-	GPCMD_STATUS = 0x02,
-	GPCMD_MESSAGE = 0x03,
-	GPCMD_ACK = 0xFF,
-};
+	GPCMD_UNKNOWN = 0,
+	GPCMD_STATE = 1,
+	GPCMD_STATUS = 2,
+	GPCMD_MESSAGE = 3,
+	GPCMD_ACK = 255
+} GPComms_Command;
 #endif
