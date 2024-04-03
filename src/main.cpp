@@ -24,16 +24,14 @@
 #ifndef GPCOMMS_BUFFER_SIZE
 #define GPCOMMS_BUFFER_SIZE 100
 #endif
-GamepadState gamepadState;
+static GamepadState gamepadState;
 Mask_t gpioState = 0;
+NESController nesController(2, 3, 4);
 
-void processI2CData(GamepadState data)
+void processI2CData()
 {
-    // printf("Processing I2CData with timestamp: %llu\n", data->timestamp);
-    NESController nesController(2, 3, 4);
-
     // Translate the gamepad data into NES format
-    uint16_t nesData = nesController.translateToFormat(data);
+    uint16_t nesData = nesController.translateToFormat(gamepadState);
 
     // Send the data to the NES system
     nesController.sendToSystem(nesData);
@@ -50,7 +48,6 @@ void handleState(uint8_t *payload)
     memcpy(&gpState, payload, sizeof(GPComms_State));
     gamepadState = gpState.gamepadState;
     gpioState = gpState.gpioState;
-    processI2CData(gamepadState);
 }
 
 void handleMessage(uint8_t *payload)
@@ -67,17 +64,14 @@ void handleBuffer(uint8_t *buf, int size)
     {
     case GPCMD_STATE:
         handleState(payload);
-        uart_puts(UART_ID, "GPCMD_STATE\n");
         break;
 
     case GPCMD_STATUS:
         handleStatus(payload);
-        uart_puts(UART_ID, "GPCMD_STATUS\n");
         break;
 
     case GPCMD_MESSAGE:
         handleMessage(payload);
-        uart_puts(UART_ID, "GPCMD_MESSAGE\n");
         break;
 
     case GPCMD_ACK:
@@ -107,10 +101,9 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
     {
         handleBuffer(buf, receivedIndex);
         receivedIndex = 0;
-        break;
         memset(buf, 0, sizeof(buf)); // Clear the buffer
+        break;
     }
-    break;
     default:
         break;
     }
@@ -131,7 +124,14 @@ void setup_slave()
     i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
     uart_puts(UART_ID, "I2C SLAVE INIT\n");
 }
-
+void core1()
+{
+    multicore_lockout_victim_init(); // block core 1
+    setup_slave();
+    while (true)
+    {
+    };
+}
 int main()
 {
     stdio_init_all();
@@ -139,9 +139,11 @@ int main()
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
     uart_puts(UART_ID, " Hello, UART!\n");
-    sleep_ms(3000);
-    setup_slave();
-    sleep_ms(2000);
+    multicore_launch_core1(core1);
     uart_puts(UART_ID, "Starting I2C transfer\n");
-    sleep_ms(1000);
+
+    while (true)
+    {
+        processI2CData();
+    };
 }
