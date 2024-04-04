@@ -27,47 +27,47 @@ uint16_t NESController::translateToFormat(GamepadState data)
 {
     // Get the GamepadState from the State property of the I2CData object
 
-    GamepadState gamepadState = data;
+    
+    // printf("Buttons: %d\n", gamepadState.buttons);
 
     // Convert the GamepadState D-pad to NES D-pad
     uint16_t nesPad = 0x00;
-    if (gamepadState.dpad & GAMEPAD_MASK_UP)
+    if (data.dpad & GAMEPAD_MASK_UP)
     {
         nesPad |= NES_BUTTON_UP;
         uart_puts(uart0, "UP\n");
     }
-    if (gamepadState.dpad & GAMEPAD_MASK_DOWN)
+    if (data.dpad & GAMEPAD_MASK_DOWN)
     {
         nesPad |= NES_BUTTON_DOWN;
         uart_puts(uart0, "DOWN\n");
     }
-    if (gamepadState.dpad & GAMEPAD_MASK_LEFT)
+    if (data.dpad & GAMEPAD_MASK_LEFT)
     {
         nesPad |= NES_BUTTON_LEFT;
         uart_puts(uart0, "LEFT\n");
     }
-    if (gamepadState.dpad & GAMEPAD_MASK_RIGHT)
+    if (data.dpad & GAMEPAD_MASK_RIGHT)
     {
         nesPad |= NES_BUTTON_RIGHT;
         uart_puts(uart0, "RIGHT\n");
     }
-    if (gamepadState.buttons & GAMEPAD_MASK_B1)
+    if (data.buttons & GAMEPAD_MASK_B1)
     {
         nesPad |= NES_BUTTON_A;
-        gpio_put(25, 1);
         uart_puts(uart0, "A\n");
     }
-    if (gamepadState.buttons & GAMEPAD_MASK_B2)
+    if (data.buttons & GAMEPAD_MASK_B2)
     {
         nesPad |= NES_BUTTON_B;
         uart_puts(uart0, "B\n");
     }
-    if (gamepadState.buttons & GAMEPAD_MASK_S1)
+    if (data.buttons & GAMEPAD_MASK_S1)
     {
         nesPad |= NES_BUTTON_SELECT;
         uart_puts(uart0, "SELECT\n");
     }
-    if (gamepadState.buttons & GAMEPAD_MASK_S2)
+    if (data.buttons & GAMEPAD_MASK_S2)
     {
         nesPad |= NES_BUTTON_START;
         uart_puts(uart0, "START\n");

@@ -1,7 +1,11 @@
+#pragma once
 #ifndef GAMEPADSTATE_H
 #define GAMEPADSTATE_H
 
 #include <pico/stdlib.h>
+#include <stdint.h>
+#include <list>
+using namespace std;
 #define GAMEPAD_BUTTON_COUNT 14
 
 /*
@@ -101,7 +105,6 @@ const uint16_t buttonMasks[] =
 		GAMEPAD_MASK_A1,
 		GAMEPAD_MASK_A2,
 };
-
 struct GamepadState
 {
 	uint8_t dpad{0};

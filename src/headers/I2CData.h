@@ -41,13 +41,13 @@ struct GPComms_Status
 	SOCDMode socdMode : 3;
 	// 2 bits left
 };
-
+#pragma pack(push, 1)
 struct GPComms_State
 {
 	GamepadState gamepadState;
 	Mask_t gpioState = 0;
 };
-
+#pragma pack(pop)
 struct GPComms_Message
 {
 	uint16_t length = 0;

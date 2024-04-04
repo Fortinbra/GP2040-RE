@@ -11,20 +11,21 @@
 #include "headers/SNESController.h"
 #include <pico/multicore.h>
 #include "hardware/uart.h"
+#include <cstdlib>
 
 #define UART_ID uart0
 #define BAUD_RATE 115200
 #define UART_TX_PIN 0
 #define UART_RX_PIN 1
 
-#define I2C_SLAVE_ADDR 0x17
+#define I2C_SLAVE_ADDR 0xCE
 #define I2C_BAUDRATE 100000
 #define I2C_SLAVE_SDA_PIN 12
 #define I2C_SLAVE_SCL_PIN 13
 #ifndef GPCOMMS_BUFFER_SIZE
 #define GPCOMMS_BUFFER_SIZE 100
 #endif
-static GamepadState gamepadState;
+static GamepadState gamepadState = {};
 Mask_t gpioState = 0;
 NESController nesController(2, 3, 4);
 
@@ -44,8 +45,12 @@ void handleStatus(uint8_t *payload)
 
 void handleState(uint8_t *payload)
 {
-    static GPComms_State gpState;
+    static GPComms_State gpState = {};
+    gamepadState.buttons = 0;
+    gamepadState.dpad = 0;
+    // printf("Payload before memcpy: %s\n", payload);
     memcpy(&gpState, payload, sizeof(GPComms_State));
+    // printf("Payload after memcpy: %s\n", payload);
     gamepadState = gpState.gamepadState;
     gpioState = gpState.gpioState;
 }
@@ -101,7 +106,6 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
     {
         handleBuffer(buf, receivedIndex);
         receivedIndex = 0;
-        memset(buf, 0, sizeof(buf)); // Clear the buffer
         break;
     }
     default:
