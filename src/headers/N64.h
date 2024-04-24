@@ -3,17 +3,20 @@
 
 #include "IController.h"
 
-class N64 : public IController {
+class N64 : public IController
+{
 public:
-	N64(int latchPin, int clockPin, int dataPin);
+	N64(int dataPin);
 
-	uint16_t translateToFormat(I2CData *data) override;
+	uint16_t translateToFormat(GamepadState data) override;
 
 	void sendToSystem(uint16_t data) override;
 
+	uint32_t recieveFromSystem();
+
+	int scaleJoystick(int gamepadValue);
+
 private:
-	int latchPin;
-	int clockPin;
 	int dataPin;
 };
 

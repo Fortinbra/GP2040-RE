@@ -54,6 +54,9 @@ target_link_libraries(${PROJECT_NAME}
 	pico_multicore
 	pico_stdlib
 )
+target_compile_definitions(${PROJECT_NAME} PUBLIC
+  PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
+)
 # Add the standard include files to the build
 target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}

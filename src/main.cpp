@@ -9,6 +9,7 @@
 #include "headers/I2CData.h"
 #include "headers/NESController.h"
 #include "headers/SNESController.h"
+#include "headers/N64.h"
 #include <pico/multicore.h>
 #include "hardware/uart.h"
 #include <cstdlib>
@@ -28,6 +29,8 @@
 static GamepadState gamepadState = {};
 Mask_t gpioState = 0;
 NESController nesController(2, 3, 4);
+SNESController snesController(2, 3, 4);
+N64 n64Controller(4);
 
 void processI2CData()
 {
@@ -43,49 +46,9 @@ void handleStatus(uint8_t *payload)
     (void)0;
 }
 
-void handleState(uint8_t *payload)
-{
-    static GPComms_State gpState = {};
-    gamepadState.buttons = 0;
-    gamepadState.dpad = 0;
-    // printf("Payload before memcpy: %s\n", payload);
-    memcpy(&gpState, payload, sizeof(GPComms_State));
-    // printf("Payload after memcpy: %s\n", payload);
-    gamepadState = gpState.gamepadState;
-    gpioState = gpState.gpioState;
-}
-
 void handleMessage(uint8_t *payload)
 {
     (void)0;
-}
-
-void handleBuffer(uint8_t *buf, int size)
-{
-    uint8_t command = buf[0];
-    uint8_t *payload = &buf[1];
-
-    switch (command)
-    {
-    case GPCMD_STATE:
-        handleState(payload);
-        break;
-
-    case GPCMD_STATUS:
-        handleStatus(payload);
-        break;
-
-    case GPCMD_MESSAGE:
-        handleMessage(payload);
-        break;
-
-    case GPCMD_ACK:
-        break;
-
-    case GPCMD_UNKNOWN:
-    default:
-        break;
-    }
 }
 
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
@@ -104,7 +67,35 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
         break;
     case I2C_SLAVE_FINISH:
     {
-        handleBuffer(buf, receivedIndex);
+        uint8_t command = buf[0];
+        uint8_t *payload = &buf[1];
+
+        switch (command)
+        {
+        case GPCMD_STATE:
+            static GPComms_State gpState = {};
+            gamepadState.buttons = 0;
+            gamepadState.dpad = 0;
+            memcpy(&gpState, payload, sizeof(GPComms_State));
+            gamepadState = gpState.gamepadState;
+            gpioState = gpState.gpioState;
+            break;
+
+        // case GPCMD_STATUS:
+        //     handleStatus(payload);
+        //     break;
+
+        // case GPCMD_MESSAGE:
+        //     handleMessage(payload);
+        //     break;
+
+        // case GPCMD_ACK:
+        //     break;
+
+        // case GPCMD_UNKNOWN:
+        default:
+            break;
+        }
         receivedIndex = 0;
         break;
     }
@@ -117,16 +108,13 @@ void setup_slave()
     gpio_init(I2C_SLAVE_SDA_PIN);
     gpio_set_function(I2C_SLAVE_SDA_PIN, GPIO_FUNC_I2C);
     gpio_pull_up(I2C_SLAVE_SDA_PIN);
-    uart_puts(UART_ID, "SDA INIT\n");
 
     gpio_init(I2C_SLAVE_SCL_PIN);
     gpio_set_function(I2C_SLAVE_SCL_PIN, GPIO_FUNC_I2C);
     gpio_pull_up(I2C_SLAVE_SCL_PIN);
-    uart_puts(UART_ID, "SCL INIT\n");
 
     i2c_init(i2c0, I2C_BAUDRATE);
     i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
-    uart_puts(UART_ID, "I2C SLAVE INIT\n");
 }
 void core1()
 {
@@ -142,12 +130,10 @@ int main()
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
-    uart_puts(UART_ID, " Hello, UART!\n");
     multicore_launch_core1(core1);
-    uart_puts(UART_ID, "Starting I2C transfer\n");
-
     while (true)
     {
         processI2CData();
+        sleep_ms(1000);
     };
 }

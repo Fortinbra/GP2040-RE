@@ -25,12 +25,6 @@ NESController::NESController(int latchPin, int clockPin, int dataPin)
 
 uint16_t NESController::translateToFormat(GamepadState data)
 {
-    // Get the GamepadState from the State property of the I2CData object
-
-    
-    // printf("Buttons: %d\n", gamepadState.buttons);
-
-    // Convert the GamepadState D-pad to NES D-pad
     uint16_t nesPad = 0x00;
     if (data.dpad & GAMEPAD_MASK_UP)
     {
