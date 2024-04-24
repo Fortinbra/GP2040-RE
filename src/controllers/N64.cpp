@@ -110,7 +110,12 @@ int N64::scaleJoystick(int gamepadValue)
 
 	return n64Value;
 }
-
+bool isMemoryCardData(uint32_t data)
+{
+	// Check the command byte to determine if the data is memory card data
+	// This is a placeholder - replace with the actual check
+	// return (data & 0xFF000000) == MEMORY_CARD_COMMAND;
+}
 uint32_t N64::recieveFromSystem()
 {
 	uint32_t data = 0;
@@ -144,10 +149,4 @@ uint32_t N64::recieveFromSystem()
 	}
 
 	return data;
-}
-bool isMemoryCardData(uint32_t data)
-{
-	// Check the command byte to determine if the data is memory card data
-	// This is a placeholder - replace with the actual check
-	// return (data & 0xFF000000) == MEMORY_CARD_COMMAND;
 }
