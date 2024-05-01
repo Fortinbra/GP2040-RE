@@ -1,0 +1,8 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "W25Q16JVUXIQ")(type "KiCad")(uri "${KIPRJMOD}/Library/W25Q16JVUXIQ_TR/KiCADv6/2024-04-27_23-43-37.kicad_sym")(options "")(descr ""))
+  (lib (name "SIT1602BC 12Mhz")(type "KiCad")(uri "${KIPRJMOD}/Library/ul_SIT1602BC-33-33E-12-000000T/KiCADv6/2024-04-27_23-46-30.kicad_sym")(options "")(descr ""))
+  (lib (name "RT6154A")(type "KiCad")(uri "${KIPRJMOD}/Library/RT6154AGQW/KiCADv6/2024-04-28_02-42-14.kicad_sym")(options "")(descr ""))
+  (lib (name "SRN2512")(type "KiCad")(uri "${KIPRJMOD}/Library/SRN2512_1R0M/KiCADv6/2024-04-28_03-34-39.kicad_sym")(options "")(descr ""))
+  (lib (name "MBR120V")(type "KiCad")(uri "${KIPRJMOD}/Library/MBR120VLSFT1G/KiCADv6/2024-04-28_03-59-30.kicad_sym")(options "")(descr ""))
+)

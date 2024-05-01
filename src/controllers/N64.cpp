@@ -1,5 +1,8 @@
 #include "headers/N64.h"
-#include <SPI.h>
+#include "sd_card.h"
+#include "ff.h"
+#include <stdio.h>
+#include "pico/stdlib.h"
 
 const uint16_t N64_BUTTON_A = 0x8000;
 const uint16_t N64_BUTTON_B = 0x4000;
@@ -16,6 +19,13 @@ const uint16_t N64_BUTTON_C_UP = 0x0008;
 const uint16_t N64_BUTTON_C_DOWN = 0x0004;
 const uint16_t N64_BUTTON_C_LEFT = 0x0002;
 const uint16_t N64_BUTTON_C_RIGHT = 0x0001;
+
+FRESULT fr;
+FATFS fs;
+FIL fil;
+int ret;
+char buf[100];
+char filename[] = "test02.txt";
 
 N64::N64(int dataPin)
 	: dataPin(dataPin)
@@ -138,14 +148,11 @@ uint32_t N64::recieveFromSystem()
 	// If the data is memory card data, write it to the SD card
 	if (isMemoryCardData(data))
 	{
-		// Open the file on the SD card
-		// File file = SD.open("memoryCardData.bin", FILE_WRITE);
-
-		// // Write the data to the file
-		// file.write((uint8_t *)&data, sizeof(data));
-
-		// // Close the file
-		// file.close();
+		sd_init_driver();
+		fr = f_mount(&fs, "0:", 1);
+		fr = f_open(&fil, "memoryCardData.bin", FA_WRITE | FA_CREATE_ALWAYS);
+		uint bw;
+		fr = f_write(&fil, &data, sizeof(data), &bw);
 	}
 
 	return data;
