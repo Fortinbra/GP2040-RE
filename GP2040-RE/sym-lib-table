@@ -5,4 +5,8 @@
   (lib (name "RT6154A")(type "KiCad")(uri "${KIPRJMOD}/Library/RT6154AGQW/KiCADv6/2024-04-28_02-42-14.kicad_sym")(options "")(descr ""))
   (lib (name "SRN2512")(type "KiCad")(uri "${KIPRJMOD}/Library/SRN2512_1R0M/KiCADv6/2024-04-28_03-34-39.kicad_sym")(options "")(descr ""))
   (lib (name "MBR120V")(type "KiCad")(uri "${KIPRJMOD}/Library/MBR120VLSFT1G/KiCADv6/2024-04-28_03-59-30.kicad_sym")(options "")(descr ""))
+  (lib (name "JST-SH")(type "KiCad")(uri "${KIPRJMOD}/Library/SM04B_SRSS_TB/KiCADv6/2024-05-02_00-33-03.kicad_sym")(options "")(descr ""))
+  (lib (name "RJ-45")(type "KiCad")(uri "${KIPRJMOD}/Library/54602_908LF/KiCADv6/2024-05-02_01-11-55.kicad_sym")(options "")(descr ""))
+  (lib (name "microSD")(type "KiCad")(uri "${KIPRJMOD}/Library/MEM2061_01_188_00_A/KiCADv6/2024-05-02_01-32-10.kicad_sym")(options "")(descr ""))
+  (lib (name "EVP-BB2A9B000")(type "KiCad")(uri "${KIPRJMOD}/Library/EVP_BB2A9B000/EVP-BB2A9B000.kicad_sym")(options "")(descr ""))
 )

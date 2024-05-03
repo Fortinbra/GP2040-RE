@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm"
+		(property "Footprint" "W25Q16:USON-8_UX_2x3x0p6_WIN"
 			(at 0 0 0)
 			(effects
 				(font

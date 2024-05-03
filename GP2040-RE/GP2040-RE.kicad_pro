@@ -43,8 +43,8 @@
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
-        "silk_text_size_h": 1.0,
-        "silk_text_size_v": 1.0,
+        "silk_text_size_h": 0.5,
+        "silk_text_size_v": 0.5,
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
@@ -58,7 +58,10 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "clearance|145230000|107820000|24ee463d-5e7f-464c-a160-594f1c58d308|d75e1664-0e4a-4ec0-b76b-26e801ddd175",
+        "starved_thermal|160430000|109230000|bea78fb5-d41e-4163-bdbf-b3c1d1d48f6f|e254114c-ce58-4624-88d7-4563bd5ae74d|F.Cu"
+      ],
       "meta": {
         "version": 2
       },
@@ -570,6 +573,54 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIGI-KEY_PART_NUMBER",
+          "name": "DIGI-KEY_PART_NUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIGIKEY-PURCHASE-URL",
+          "name": "DIGIKEY-PURCHASE-URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MAXIMUM_PACKAGE_HEIGHT",
+          "name": "MAXIMUM_PACKAGE_HEIGHT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MF",
+          "name": "MF",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MOUSER-PURCHASE-URL",
+          "name": "MOUSER-PURCHASE-URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MP",
+          "name": "MP",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE",
+          "name": "PACKAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ARROW_ELECTRONICS-PURCHASE-URL",
+          "name": "ARROW_ELECTRONICS-PURCHASE-URL",
           "show": false
         }
       ],
