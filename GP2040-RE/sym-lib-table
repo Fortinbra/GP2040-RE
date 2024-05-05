@@ -9,4 +9,7 @@
   (lib (name "RJ-45")(type "KiCad")(uri "${KIPRJMOD}/Library/54602_908LF/KiCADv6/2024-05-02_01-11-55.kicad_sym")(options "")(descr ""))
   (lib (name "microSD")(type "KiCad")(uri "${KIPRJMOD}/Library/MEM2061_01_188_00_A/KiCADv6/2024-05-02_01-32-10.kicad_sym")(options "")(descr ""))
   (lib (name "EVP-BB2A9B000")(type "KiCad")(uri "${KIPRJMOD}/Library/EVP_BB2A9B000/EVP-BB2A9B000.kicad_sym")(options "")(descr ""))
+  (lib (name "LM393LVQ")(type "KiCad")(uri "${KIPRJMOD}/Library/LM393LVQDGKRQ1/LM393LVQ.kicad_sym")(options "")(descr ""))
+  (lib (name "TPS3702CX50")(type "KiCad")(uri "${KIPRJMOD}/Library/TPS3702CX50DDCR/KiCADv6/2024-05-04_23-40-00.kicad_sym")(options "")(descr ""))
+  (lib (name "SBC846BW")(type "KiCad")(uri "${KIPRJMOD}/Library/SBC846BWT1G/KiCADv6/2024-05-05_00-28-53.kicad_sym")(options "")(descr ""))
 )
