@@ -15014,10 +15014,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "5146e5ae-2a5f-43e1-86c3-3423b40835eb")
+			(uuid "5146e5ae-2a5f-43e1-86c3-3423b40835ec")
 		)
 		(pin "1"
-			(uuid "b8a332c0-6d5a-4a31-af07-28b0e3d26337")
+			(uuid "b8a332c0-6d5a-4a31-af07-28b0e3d26338")
 		)
 		(instances
 			(project "GP2040-RE"
@@ -15705,10 +15705,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "d9a16df1-3c84-41d3-a004-4d957f2fd443")
+			(uuid "d9a16df1-3c84-41d3-a004-4d957f2fd444")
 		)
 		(pin "2"
-			(uuid "1ee12d1b-9b85-4650-b8f3-6da37d0826a3")
+			(uuid "1ee12d1b-9b85-4650-b8f3-6da37d0826a4")
 		)
 		(instances
 			(project "GP2040-RE"
@@ -16723,7 +16723,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "9514c1ca-15a5-4405-831c-049aca401662")
+			(uuid "9514c1ca-15a5-4405-831c-049aca401663")
 		)
 		(instances
 			(project "GP2040-RE"
