@@ -41,7 +41,6 @@ controllers/NESController.cpp
 controllers/SNESController.cpp
 controllers/N64.cpp
 )
-add_subdirectory(../lib/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
 pico_set_program_name(${PROJECT_NAME} "GP2040-RE")
 pico_set_program_version(${PROJECT_NAME} "0.1")
 
@@ -54,7 +53,6 @@ target_link_libraries(${PROJECT_NAME}
 	hardware_i2c
 	pico_multicore
 	pico_stdlib
-  FatFs_SPI
 )
 target_compile_definitions(${PROJECT_NAME} PUBLIC
   PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
