@@ -11,4 +11,5 @@
   (lib (name "EVP_BB2A9B000")(type "KiCad")(uri "${KIPRJMOD}/Library/EVP_BB2A9B000")(options "")(descr ""))
   (lib (name "TPS3702CX50")(type "KiCad")(uri "${KIPRJMOD}/Library/TPS3702CX50DDCR/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "SBC846BW")(type "KiCad")(uri "${KIPRJMOD}/Library/SBC846BWT1G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "GP2040-RE")(type "KiCad")(uri "${KIPRJMOD}/Library/GP2040-RE.pretty")(options "")(descr ""))
 )

@@ -12,4 +12,5 @@
   (lib (name "LM393LVQ")(type "KiCad")(uri "${KIPRJMOD}/Library/LM393LVQDGKRQ1/LM393LVQ.kicad_sym")(options "")(descr ""))
   (lib (name "TPS3702CX50")(type "KiCad")(uri "${KIPRJMOD}/Library/TPS3702CX50DDCR/KiCADv6/2024-05-04_23-40-00.kicad_sym")(options "")(descr ""))
   (lib (name "SBC846BW")(type "KiCad")(uri "${KIPRJMOD}/Library/SBC846BWT1G/KiCADv6/2024-05-05_00-28-53.kicad_sym")(options "")(descr ""))
+  (lib (name "GP2040-RE")(type "KiCad")(uri "${KIPRJMOD}/Library/GP2040-RE.kicad_sym")(options "")(descr ""))
 )
