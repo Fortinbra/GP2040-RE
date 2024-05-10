@@ -1,6 +1,4 @@
 #include "headers/N64.h"
-#include "sd_card.h"
-#include "ff.h"
 #include <stdio.h>
 #include "pico/stdlib.h"
 
@@ -19,13 +17,6 @@ const uint16_t N64_BUTTON_C_UP = 0x0008;
 const uint16_t N64_BUTTON_C_DOWN = 0x0004;
 const uint16_t N64_BUTTON_C_LEFT = 0x0002;
 const uint16_t N64_BUTTON_C_RIGHT = 0x0001;
-
-FRESULT fr;
-FATFS fs;
-FIL fil;
-int ret;
-char buf[100];
-char filename[] = "test02.txt";
 
 N64::N64(int dataPin)
 	: dataPin(dataPin)

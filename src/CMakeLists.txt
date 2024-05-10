@@ -40,6 +40,7 @@ main.cpp
 controllers/NESController.cpp
 controllers/SNESController.cpp
 controllers/N64.cpp
+FileManager.cpp
 )
 pico_set_program_name(${PROJECT_NAME} "GP2040-RE")
 pico_set_program_version(${PROJECT_NAME} "0.1")
@@ -53,6 +54,7 @@ target_link_libraries(${PROJECT_NAME}
 	hardware_i2c
 	pico_multicore
 	pico_stdlib
+  lib/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico
 )
 target_compile_definitions(${PROJECT_NAME} PUBLIC
   PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
@@ -61,6 +63,7 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
 target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
+  lib/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico/include
 )
 
 pico_add_extra_outputs(${PROJECT_NAME})

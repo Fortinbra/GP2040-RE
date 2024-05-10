@@ -1,5 +1,22 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,kicad,ltspice,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,kicad,ltspice,python
+# Created by https://www.toptal.com/developers/gitignore/api/kicad,python,ltspice,visualstudiocode,cmake
+# Edit at https://www.toptal.com/developers/gitignore?templates=kicad,python,ltspice,visualstudiocode,cmake
+
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+### CMake Patch ###
+# External projects
+*-prefix/
 
 ### KiCad ###
 # For PCBs designed using KiCad: https://www.kicad.org/
@@ -71,6 +88,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+lib/
 lib64/
 parts/
 sdist/
@@ -243,4 +261,4 @@ pyrightconfig.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,kicad,ltspice,python
+# End of https://www.toptal.com/developers/gitignore/api/kicad,python,ltspice,visualstudiocode,cmake
