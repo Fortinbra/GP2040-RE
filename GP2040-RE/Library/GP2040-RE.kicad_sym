@@ -212,6 +212,195 @@
 			)
 		)
 	)
+	(symbol "FET"
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "Q"
+			(at -7.874 9.652 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NPN 65V 0.1A "
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "GP2040-RE:SOT-323-3_2P2X1P35_ONS"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/bc846awt1-d.pdf"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TRANS NPN 65V 0.1A SC70-3"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey Part Number" "SBC846BWT1GOSCT-ND"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "FET_0_1"
+			(polyline
+				(pts
+					(xy -5.334 0) (xy -1.016 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -1.016 3.81) (xy -1.016 -3.81)
+				)
+				(stroke
+					(width 1)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 3.81 -3.81) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 3.81 3.81) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(circle
+				(center 0 0)
+				(radius 5.4713)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "FET_1_1"
+			(polyline
+				(pts
+					(xy 2.54 -2.794) (xy 1.524 -3.048) (xy 3.81 -3.81) (xy 2.794 -2.032) (xy 2.54 -2.794)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(pin input line
+				(at -7.62 0 0)
+				(length 2.54)
+				(name "Base"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 3.81 6.35 270)
+				(length 2.54)
+				(name "Collector"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin output line
+				(at 3.81 -6.35 90)
+				(length 2.54)
+				(name "Emitter"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
 	(symbol "Flash Memory"
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -454,7 +643,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at 0 15.24 0)
+			(at 7.366 5.08 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -462,7 +651,7 @@
 			)
 		)
 		(property "Value" "Linear Regulator"
-			(at 0 12.7 0)
+			(at 7.366 2.54 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -470,7 +659,7 @@
 			)
 		)
 		(property "Footprint" "GP2040-RE:QFN_4AGQW_RIT"
-			(at 0.254 -16.51 0)
+			(at 6.604 -26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -480,7 +669,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.richtek.com/SaveDownload.aspx?specid=RT6154A/RT6154B"
-			(at 3.048 -18.542 0)
+			(at 9.398 -28.702 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -490,7 +679,7 @@
 			)
 		)
 		(property "Description" "IC REG BUCK-BOOST ADJ 4A 14WDFN"
-			(at 0.254 -14.478 0)
+			(at 6.604 -24.638 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -499,7 +688,7 @@
 			)
 		)
 		(property "DigiKey Part Number" "1028-1338-1-ND"
-			(at 0.508 -20.828 0)
+			(at 6.858 -30.988 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -527,7 +716,7 @@
 		)
 		(symbol "Linear Regulator_0_1"
 			(pin passive line
-				(at -9.906 7.62 0)
+				(at -2.54 -2.54 0)
 				(length 2.54)
 				(name "VINA"
 					(effects
@@ -545,7 +734,7 @@
 				)
 			)
 			(pin power_in line
-				(at 9.144 -5.08 180)
+				(at 16.51 -15.24 180)
 				(length 2.54)
 				(name "VIN"
 					(effects
@@ -563,7 +752,7 @@
 				)
 			)
 			(pin power_in line
-				(at 9.144 -2.54 180)
+				(at 16.51 -12.7 180)
 				(length 2.54)
 				(name "VIN"
 					(effects
@@ -581,7 +770,7 @@
 				)
 			)
 			(pin input line
-				(at 9.144 0 180)
+				(at 16.51 -10.16 180)
 				(length 2.54)
 				(name "EN"
 					(effects
@@ -599,7 +788,7 @@
 				)
 			)
 			(pin input line
-				(at 9.144 2.54 180)
+				(at 16.51 -7.62 180)
 				(length 2.54)
 				(name "PS/SYNC"
 					(effects
@@ -617,7 +806,7 @@
 				)
 			)
 			(pin power_in line
-				(at 9.144 5.08 180)
+				(at 16.51 -5.08 180)
 				(length 2.54)
 				(name "PGOOD"
 					(effects
@@ -635,7 +824,7 @@
 				)
 			)
 			(pin power_in line
-				(at 9.144 7.62 180)
+				(at 16.51 -2.54 180)
 				(length 2.54)
 				(name "PGND"
 					(effects
@@ -653,7 +842,7 @@
 				)
 			)
 			(pin power_in line
-				(at -9.906 5.08 0)
+				(at -2.54 -5.08 0)
 				(length 2.54)
 				(name "GND"
 					(effects
@@ -671,7 +860,7 @@
 				)
 			)
 			(pin input line
-				(at -9.906 2.54 0)
+				(at -2.54 -7.62 0)
 				(length 2.54)
 				(name "FB"
 					(effects
@@ -689,7 +878,7 @@
 				)
 			)
 			(pin power_out line
-				(at -9.906 0 0)
+				(at -2.54 -10.16 0)
 				(length 2.54)
 				(name "VOUT"
 					(effects
@@ -707,7 +896,7 @@
 				)
 			)
 			(pin power_out line
-				(at -9.906 -2.54 0)
+				(at -2.54 -12.7 0)
 				(length 2.54)
 				(name "VOUT"
 					(effects
@@ -725,7 +914,7 @@
 				)
 			)
 			(pin bidirectional line
-				(at -9.906 -5.08 0)
+				(at -2.54 -15.24 0)
 				(length 2.54)
 				(name "LX2"
 					(effects
@@ -743,7 +932,7 @@
 				)
 			)
 			(pin bidirectional line
-				(at -9.906 -7.62 0)
+				(at -2.54 -17.78 0)
 				(length 2.54)
 				(name "LX2"
 					(effects
@@ -761,7 +950,7 @@
 				)
 			)
 			(pin bidirectional line
-				(at 9.144 -10.16 180)
+				(at 16.51 -20.32 180)
 				(length 2.54)
 				(name "LX1"
 					(effects
@@ -779,7 +968,7 @@
 				)
 			)
 			(pin bidirectional line
-				(at 9.144 -7.62 180)
+				(at 16.51 -17.78 180)
 				(length 2.54)
 				(name "LX1"
 					(effects
@@ -799,8 +988,8 @@
 		)
 		(symbol "Linear Regulator_1_1"
 			(rectangle
-				(start -7.366 10.16)
-				(end 6.604 -12.7)
+				(start 0 0)
+				(end 13.97 -22.86)
 				(stroke
 					(width 0)
 					(type default)
@@ -1000,7 +1189,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RJ-45:CONN8_2-908LF_AMP"
+		(property "Footprint" "GP2040-RE:CONN8_2-908LF_AMP"
 			(at 9.906 -10.922 90)
 			(effects
 				(font
@@ -2567,7 +2756,7 @@
 				)
 			)
 			(pin power_in line
-				(at 21.59 -73.66 90)
+				(at 21.59 -76.2 90)
 				(length 2.54)
 				(name "GND"
 					(effects
@@ -2652,6 +2841,166 @@
 					(effects
 						(font
 							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "SM03B-SRSS-TB_LF__SN_"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J"
+			(at -5.08 8.382 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "SM03B-SRSS-TB_LF__SN_"
+			(at -10.668 -3.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "GP2040-RE:JST_SM03B-SRSS-TB_LF__SN_"
+			(at 2.54 14.224 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SM03B-SRSS-TB(LF)(SN)/JST+Sales+America+Inc./view-part/?ref=snap"
+			(at 6.604 11.176 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "SM03B-SRSS-TB(LF)(SN)"
+			(at -0.508 17.018 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "JST"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "DigiKey Part Number" "455-BM03B-SRSS-TBTCT-ND"
+			(at 0.254 21.082 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "SM03B-SRSS-TB_LF__SN__0_0"
+			(rectangle
+				(start -2.54 7.366)
+				(end 2.54 -1.524)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin passive line
+				(at -5.08 5.08 0)
+				(length 2.54)
+				(name "1"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 2.54 0)
+				(length 2.54)
+				(name "2"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 0 0)
+				(length 2.54)
+				(name "3"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.016 1.016)
 						)
 					)
 				)
@@ -3283,6 +3632,139 @@
 			)
 			(pin passive line
 				(at 0 0 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "VREF"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "R"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VREF SHUNT 2%"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "GP2040-RE:DBZ3"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm4040-n"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "IC VREF SHUNT 2% SOT23-3"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey Part Number" "296-51276-1-ND"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "VREF_0_1"
+			(polyline
+				(pts
+					(xy -1.27 -2.54) (xy 0 -2.54) (xy 1.27 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -1.27 -3.81) (xy 0.635 -2.54) (xy -1.27 -1.27) (xy -1.27 -3.81)
+				)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 -3.81) (xy 0.635 -3.81) (xy 0.635 -1.27) (xy 1.27 -1.27)
+				)
+				(stroke
+					(width 0.2032)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "VREF_1_1"
+			(pin passive line
+				(at 3.81 -2.54 180)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -3.81 -2.54 0)
 				(length 2.54)
 				(name ""
 					(effects
