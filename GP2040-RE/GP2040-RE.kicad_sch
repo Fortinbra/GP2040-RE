@@ -9875,6 +9875,15 @@
 				(hide yes)
 			)
 		)
+		(property "DigiKey Part Number" "1276-CL10A476MQ8QRNCCT-ND"
+			(at 55.88 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "04528fc3-0869-4428-a674-4a6e99dd7189")
 		)
