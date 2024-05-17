@@ -74,8 +74,10 @@ uint16_t NESController::translateToFormat(GamepadState data)
     return nesData;
 }
 
-void NESController::sendToSystem(uint16_t data)
+void NESController::sendToSystem(GamepadState data)
 {
+    uint16_t nesData = translateToFormat(data);
+
     // Set the latch pin low to start the transmission
     gpio_put(latchPin, 0);
     // Shift out the data bits
@@ -84,7 +86,7 @@ void NESController::sendToSystem(uint16_t data)
         // Set the clock pin low
         gpio_put(clockPin, 0);
         // Set the data pin to the current bit value
-        gpio_put(dataPin, (data >> i) & 1);
+        gpio_put(dataPin, (nesData >> i) & 1);
         // Set the clock pin high to shift the bit
         gpio_put(clockPin, 1);
     }

@@ -8,16 +8,13 @@ class N64 : public IController
 public:
 	N64(int dataPin);
 
-	uint16_t translateToFormat(GamepadState data) override;
-
-	void sendToSystem(uint16_t data) override;
-
-	uint32_t recieveFromSystem();
-
-	int scaleJoystick(int gamepadValue);
+	void sendToSystem(GamepadState data) override;
 
 private:
 	int dataPin;
+	uint16_t translateToFormat(GamepadState data) override;
+	uint32_t recieveFromSystem();
+	int scaleJoystick(int gamepadValue);
 };
 
 #endif // N64_H
