@@ -18,15 +18,21 @@
 
 Console detectedConsole;
 static GamepadState gamepadState = {};
+SNESController *snes = SNESController::getInstance();
 Mask_t gpioState = 0;
 
 void processI2CData()
 {
-    // Translate the gamepad data into NES format
-    //   uint16_t nesData = nesController.translateToFormat(gamepadState);
-
-    // Send the data to the NES system
-    //   nesController.sendToSystem(nesData);
+    switch (detectedConsole)
+    {
+    case Console::CONSOLE_SNES:
+        snes->sendToSystem(gamepadState);
+        printf("AFTER SNES\n");
+        break;
+    default:
+        // Do nothing, we don't know what console we're dealing with.
+        break;
+    }
 }
 
 void handleStatus(uint8_t *payload)
@@ -134,46 +140,49 @@ const char *consoleToString(Console console)
         return "Unknown";
     }
 }
-int measureFrequency(int pin)
-{
-    gpio_init(pin);
-    gpio_set_dir(pin, GPIO_IN);
+// int measureFrequency(int pin)
+// {
+//     gpio_init(pin);
+//     gpio_set_dir(pin, GPIO_IN);
 
-    // Count the number of rising edges over a period of one second
-    int count = 0;
-    bool lastState = gpio_get(pin);
-    absolute_time_t endTime = make_timeout_time_ms(1000);
+//     // Count the number of rising edges over a period of one second
+//     int count = 0;
+//     bool lastState = gpio_get(pin);
+//     absolute_time_t endTime = make_timeout_time_ms(1000);
 
-    while (!time_reached(endTime))
-    {
-        bool state = gpio_get(pin);
-        if (state && !lastState)
-        {
-            count++;
-        }
-        lastState = state;
-    }
+//     while (!time_reached(endTime))
+//     {
+//         bool state = gpio_get(pin);
+//         if (state && !lastState)
+//         {
+//             count++;
+//         }
+//         lastState = state;
+//     }
 
-    // The count is the frequency in Hz
-    return count;
-}
+//     // The count is the frequency in Hz
+//     return count;
+// }
 
 Console detectConsole()
 {
     // Measure the frequency of the clock signal
-    int frequency = measureFrequency(BROWN_ETHERNET_PIN);
+    // int frequency = measureFrequency(BROWN_ETHERNET_PIN);
 
-    // Compare the measured frequency to the lookup table
-    for (int i = 0; i < sizeof(consoleLookupTable) / sizeof(ConsoleLookup); i++)
-    {
-        if (consoleLookupTable[i].frequency == frequency)
-        {
-            return consoleLookupTable[i].console;
-        }
-    }
+    // // Print the measured frequency to the UART
+    // printf("Measured frequency: %d Hz\n", frequency);
+
+    // // Compare the measured frequency to the lookup table
+    // for (int i = 0; i < sizeof(consoleLookupTable) / sizeof(ConsoleLookup); i++)
+    // {
+    //     if (consoleLookupTable[i].frequency == frequency)
+    //     {
+    //         return consoleLookupTable[i].console;
+    //     }
+    // }
 
     // If no match was found in the lookup table, return unknown
-    return Console::CONSOLE_UNKNOWN;
+    return Console::CONSOLE_SNES;
 }
 int main()
 {
@@ -185,8 +194,17 @@ int main()
 
     // Detect the console
     detectedConsole = detectConsole();
-
     printf("Detected console: %s\n", consoleToString(detectedConsole));
+    switch (detectedConsole)
+    {
+    case Console::CONSOLE_SNES:
+        printf("did something?\n");
+        // snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
+        break;
+    default:
+        // Do nothing, we don't know what console we're dealing with.
+        break;
+    }
 
     while (true)
     {

@@ -61,6 +61,7 @@ target_link_libraries(${PROJECT_NAME}
   pico_bootsel_via_double_reset
   pico_time
   hardware_timer
+  hardware_irq
 )
 target_compile_definitions(${PROJECT_NAME} PUBLIC
   PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
