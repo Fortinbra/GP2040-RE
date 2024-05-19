@@ -11,6 +11,7 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
+
 if (PICO_SDK_VERSION_STRING VERSION_LESS "1.5.0")
   message(FATAL_ERROR "Raspberry Pi Pico SDK version 1.5.0 (or later) required. Your version is ${PICO_SDK_VERSION_STRING}")
 endif()
@@ -39,9 +40,9 @@ add_executable(${PROJECT_NAME}
 main.cpp
 controllers/NESController.cpp
 controllers/SNESController.cpp
-controllers/N64.cpp
-FileManager.cpp
+Console.cpp
 )
+
 pico_set_program_name(${PROJECT_NAME} "GP2040-RE")
 pico_set_program_version(${PROJECT_NAME} "0.1")
 
@@ -51,10 +52,16 @@ pico_enable_stdio_uart(${PROJECT_NAME} 1)
 # Add the standard library to the build
 target_link_libraries(${PROJECT_NAME}
 	pico_i2c_slave
-	hardware_i2c
+	hardware_gpio
+  hardware_i2c
+  hardware_spi
+  hardware_dma
 	pico_multicore
-	pico_stdlib
-  lib/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico
+  pico_stdlib
+  pico_bootsel_via_double_reset
+  pico_time
+  hardware_timer
+  hardware_irq
 )
 target_compile_definitions(${PROJECT_NAME} PUBLIC
   PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
@@ -63,8 +70,8 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
 target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
-  lib/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico/include
 )
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 pico_add_extra_outputs(${PROJECT_NAME})
 

@@ -8,9 +8,10 @@ class IController
 public:
     virtual ~IController() {}
 
-    virtual uint16_t translateToFormat(GamepadState data) = 0;
+    virtual void sendToSystem(GamepadState data) = 0;
 
-    virtual void sendToSystem(uint16_t data) = 0;
+private:
+    virtual uint16_t translateToFormat(GamepadState data) = 0;
 };
 
 #endif // ICONTROLLER_H

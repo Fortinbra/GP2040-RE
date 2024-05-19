@@ -82,6 +82,8 @@ uint16_t N64::translateToFormat(GamepadState data)
 
 void N64::sendToSystem(uint16_t data)
 {
+	uint16_t n64Data = translateToFormat(data);
+
 	gpio_set_dir(dataPin, GPIO_OUT);
 	for (int i = 15; i >= 0; i--)
 	{

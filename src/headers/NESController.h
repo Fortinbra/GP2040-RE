@@ -9,14 +9,14 @@ class NESController : public IController
 public:
 	NESController(int latchPin, int clockPin, int dataPin);
 
-	uint16_t translateToFormat(GamepadState data) override;
-
-	void sendToSystem(uint16_t data) override;
+	void sendToSystem(GamepadState data) override;
 
 private:
 	int latchPin;
 	int clockPin;
 	int dataPin;
+	
+	uint16_t translateToFormat(GamepadState data) override;
 };
 
 #endif // NESCONTROLLER_H
