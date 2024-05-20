@@ -17,16 +17,20 @@
 #include "headers/Console.h"
 
 Console detectedConsole;
-static GamepadState gamepadState = {};
 SNESController *snes = SNESController::getInstance();
-Mask_t gpioState = 0;
 
 void processI2CData()
 {
+    GamepadState gpState;
+    uint32_t *data = reinterpret_cast<uint32_t *>(&gpState);
+    for (size_t i = 0; i < sizeof(GamepadState) / sizeof(uint32_t); i++)
+    {
+        data[i] = multicore_fifo_pop_blocking();
+    }
     switch (detectedConsole)
     {
     case Console::CONSOLE_SNES:
-        snes->sendToSystem(gamepadState);
+        snes->sendToSystem(gpState);
         printf("AFTER SNES\n");
         break;
     default:
@@ -67,26 +71,19 @@ static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event)
         switch (command)
         {
         case GPCMD_STATE:
+        {
             static GPComms_State gpState = {};
-            gamepadState.buttons = 0;
-            gamepadState.dpad = 0;
             memcpy(&gpState, payload, sizeof(GPComms_State));
-            gamepadState = gpState.gamepadState;
-            gpioState = gpState.gpioState;
+            GamepadState gamepadState = gpState.gamepadState;
+            {
+                uint32_t *data = reinterpret_cast<uint32_t *>(&gamepadState);
+                for (size_t i = 0; i < sizeof(GamepadState) / sizeof(uint32_t); i++)
+                {
+                    multicore_fifo_push_blocking(data[i]);
+                }
+            }
             break;
-
-        // case GPCMD_STATUS:
-        //     handleStatus(payload);
-        //     break;
-
-        // case GPCMD_MESSAGE:
-        //     handleMessage(payload);
-        //     break;
-
-        // case GPCMD_ACK:
-        //     break;
-
-        // case GPCMD_UNKNOWN:
+        }
         default:
             break;
         }
@@ -144,12 +141,10 @@ const char *consoleToString(Console console)
 // {
 //     gpio_init(pin);
 //     gpio_set_dir(pin, GPIO_IN);
-
 //     // Count the number of rising edges over a period of one second
 //     int count = 0;
 //     bool lastState = gpio_get(pin);
 //     absolute_time_t endTime = make_timeout_time_ms(1000);
-
 //     while (!time_reached(endTime))
 //     {
 //         bool state = gpio_get(pin);
@@ -159,7 +154,6 @@ const char *consoleToString(Console console)
 //         }
 //         lastState = state;
 //     }
-
 //     // The count is the frequency in Hz
 //     return count;
 // }
@@ -198,8 +192,7 @@ int main()
     switch (detectedConsole)
     {
     case Console::CONSOLE_SNES:
-        printf("did something?\n");
-         snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
+        snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
         break;
     default:
         // Do nothing, we don't know what console we're dealing with.
@@ -209,6 +202,5 @@ int main()
     while (true)
     {
         processI2CData();
-        sleep_ms(1000);
     };
 }

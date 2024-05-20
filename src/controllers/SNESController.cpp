@@ -44,7 +44,7 @@ void SNESController::Setup(int latchPinInput, int clockPinInput, int dataPinInpu
 void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
 {
     // printf("Latch interrupt hit\n");
-
+    int snesLatchedState = instance->snesState;
     for (int i = 0; i < 16; i++)
     { // Wait for the rising edge of the clock pin
         while (gpio_get(instance->clockPin) == 0)
@@ -53,7 +53,7 @@ void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
         // Set the data pin to the current bit value
         if (i < 12)
         {
-            int buttonValue = (instance->snesState & buttonOrder[i]) != 0;
+            int buttonValue = (snesLatchedState & buttonOrder[i]) != 0;
             gpio_put(instance->dataPin, !buttonValue);
             printf("Button %02d value: %d\n", i, !buttonValue);
         }
