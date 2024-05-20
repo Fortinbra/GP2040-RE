@@ -54,13 +54,13 @@ void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
         if (i < 12)
         {
             int buttonValue = (instance->snesState & buttonOrder[i]) != 0;
-            gpio_put(instance->dataPin, buttonValue);
-            // printf("Button %d value: %d\n", i, buttonValue);
+            gpio_put(instance->dataPin, !buttonValue);
+            printf("Button %02d value: %d\n", i, !buttonValue);
         }
         else
         {
-            gpio_put(instance->dataPin, 1); // Unknown buttons always report high
-            // printf("Button %d value: %d\n", i, 1);
+            // Unknown buttons always report high
+            gpio_put(instance->dataPin, 1);
         }
         // Wait for the falling edge of the clock pin
         while (gpio_get(instance->clockPin) == 1)
@@ -71,7 +71,6 @@ void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
 void SNESController::sendToSystem(GamepadState data)
 {
     GamepadState gamepadState = data;
-    snesState = 0x00;
     if ((gamepadState.dpad & GAMEPAD_MASK_UP) == GAMEPAD_MASK_UP)
     {
         snesState |= SNES_BUTTON_UP;
