@@ -199,7 +199,7 @@ int main()
     {
     case Console::CONSOLE_SNES:
         printf("did something?\n");
-        // snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
+         snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
         break;
     default:
         // Do nothing, we don't know what console we're dealing with.
