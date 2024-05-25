@@ -2,22 +2,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 
-const uint16_t N64_BUTTON_A = 0x8000;
-const uint16_t N64_BUTTON_B = 0x4000;
-const uint16_t N64_BUTTON_Z = 0x2000;
-const uint16_t N64_BUTTON_START = 0x1000;
-const uint16_t N64_BUTTON_DPAD_UP = 0x0800;
-const uint16_t N64_BUTTON_DPAD_DOWN = 0x0400;
-const uint16_t N64_BUTTON_DPAD_LEFT = 0x0200;
-const uint16_t N64_BUTTON_DPAD_RIGHT = 0x0100;
-const uint16_t N64_BUTTON_RESERVED = 0x0080; // Reserved, always 0
-const uint16_t N64_BUTTON_L = 0x0020;
-const uint16_t N64_BUTTON_R = 0x0010;
-const uint16_t N64_BUTTON_C_UP = 0x0008;
-const uint16_t N64_BUTTON_C_DOWN = 0x0004;
-const uint16_t N64_BUTTON_C_LEFT = 0x0002;
-const uint16_t N64_BUTTON_C_RIGHT = 0x0001;
-
 N64::N64(int dataPin)
 	: dataPin(dataPin)
 {
@@ -72,27 +56,13 @@ uint16_t N64::translateToFormat(GamepadState data)
 	}
 
 	// Add the joystick data
-	n64Data <<= 8;								// Shift the button data left by 8 bits to make room for the joystick data
-	n64Data |= (scaleJoystick(data.lx) & 0xFF); // Add the X-axis joystick data
-	n64Data <<= 8;								// Shift the data left by 8 bits again to make room for more joystick data
-	n64Data |= (scaleJoystick(data.ly) & 0xFF); // Add the Y-axis joystick data
-
+	n64Data <<= 8;										   // Shift the button data left by 8 bits to make room for the joystick data
+	n64Data |= reverseBits(scaleJoystick(data.lx) & 0xFF); // Add the X-axis joystick data
+	n64Data <<= 8;										   // Shift the data left by 8 bits again to make room for more joystick data
+	n64Data |= reverseBits(scaleJoystick(data.ly) & 0xFF); // Add the Y-axis joystick data
+	N64ControllerState = n64Data;
 	return n64Data;
 }
-
-void N64::sendToSystem(uint16_t data)
-{
-	uint16_t n64Data = translateToFormat(data);
-
-	gpio_set_dir(dataPin, GPIO_OUT);
-	for (int i = 15; i >= 0; i--)
-	{
-		gpio_put(dataPin, (data >> i) & 1);
-		sleep_us(4);
-	}
-	gpio_set_dir(dataPin, GPIO_IN);
-}
-
 int N64::scaleJoystick(int gamepadValue)
 {
 	// Subtract the midpoint of the gamepad range to center the value around 0
@@ -113,40 +83,100 @@ int N64::scaleJoystick(int gamepadValue)
 
 	return n64Value;
 }
-bool isMemoryCardData(uint32_t data)
+uint8_t N64::reverseBits(uint8_t num)
 {
-	// Check the command byte to determine if the data is memory card data
-	// This is a placeholder - replace with the actual check
-	// return (data & 0xFF000000) == MEMORY_CARD_COMMAND;
+	uint8_t NO_OF_BITS = sizeof(num) * 8;
+	uint8_t reverse_num = 0;
+	int i;
+	for (i = 0; i < NO_OF_BITS; i++)
+	{
+		if ((num & (1 << i)))
+			reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
+	}
+	return reverse_num;
 }
-uint32_t N64::recieveFromSystem()
+void N64::listenForCommands()
 {
-	uint32_t data = 0;
-
-	// Set the data pin to input
+	// Set the data pin to input mode to listen for commands
 	gpio_set_dir(dataPin, GPIO_IN);
 
-	// Read each bit of the data
-	for (int i = 31; i >= 0; i--)
+	while (true) // Keep listening for commands indefinitely
 	{
-		// Wait for the appropriate amount of time
-		sleep_us(4); // The N64 controller protocol uses a bit rate of 250 kbit/s, which corresponds to 4 microseconds per bit
+		// Wait for the start bit
+		while (gpio_get(dataPin) == 1)
+		{
+		}
 
-		// Read the bit from the data pin
-		uint32_t bit = gpio_get(dataPin);
+		// Wait for the line to go high again
+		sleep_us(2);
+		if (gpio_get(dataPin) == 0)
+			continue;
 
-		// Add the bit to the data
-		data |= (bit << i);
+		// Receive the command
+		uint8_t command = receiveCommand();
+
+		// Respond to the command
+		switch (command)
+		{
+		case N64Command::RESETANDINFO:
+			resetController();
+			sendControllerInfo();
+			break;
+		case N64Command::INFO:
+			sendControllerInfo();
+			break;
+		case N64Command::CONTROLLER_STATE:
+			sendControllerState();
+			break;
+		case N64Command::READ_CONTROLLER_ACCESSORY:
+			// handle READ_CONTROLLER_ACCESSORY command
+			break;
+		case N64Command::WRITE_CONTROLLER_ACCESSORY:
+			// handle WRITE_CONTROLLER_ACCESSORY command
+			break;
+		case N64Command::READ_EEPROM:
+			// handle READ_EEPROM command
+			break;
+		case N64Command::WRITE_EEPROM:
+			// handle WRITE_EEPROM command
+			break;
+		case N64Command::RTC_INFO:
+			// handle RTC_INFO command
+			break;
+		case N64Command::READ_RTC_BLOCK:
+			// handle READ_RTC_BLOCK command
+			break;
+		case N64Command::WRITE_RTC_BLOCK:
+			// handle WRITE_RTC_BLOCK command
+			break;
+		}
 	}
-	// If the data is memory card data, write it to the SD card
-	if (isMemoryCardData(data))
+}
+void N64::sendToSystem(uint8_t data)
+{
+}
+void N64::resetController()
+{
+	// Reset the joystick to 0,0 position
+	N64ControllerState &= ~(JOYSTICK_X_MASK | JOYSTICK_Y_MASK);
+}
+void N64::sendControllerInfo()
+{
+	uint8_t info[3];
+
+	// First two bytes for controller
+	info[0] = 0x05;
+	info[1] = 0x00;
+
+	// Third byte for pack installed
+	info[2] = 0x01;
+
+	// Send the info to the system
+	for (int i = 0; i < 3; i++)
 	{
-		sd_init_driver();
-		fr = f_mount(&fs, "0:", 1);
-		fr = f_open(&fil, "memoryCardData.bin", FA_WRITE | FA_CREATE_ALWAYS);
-		uint bw;
-		fr = f_write(&fil, &data, sizeof(data), &bw);
+		sendToSystem(info[i]);
 	}
-
-	return data;
+}
+void N64::sendControllerState(){
+	
 }

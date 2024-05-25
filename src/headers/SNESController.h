@@ -47,6 +47,7 @@ private:
     static SNESController *instance;
     uint dataPin;
     uint clockPin;
+    uint latchPin;
     uint16_t snesState;
 };
 

@@ -1,4 +1,4 @@
 {
-	"cmake.sourceDirectory": "/home/fortinbra/GP2040-RE/src",
-	"cortex-debug.variableUseNaturalFormat": true
+	"cortex-debug.variableUseNaturalFormat": true,
+	"cmake.sourceDirectory": "C:/ws/GP2040-RE/src"
 }

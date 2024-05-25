@@ -6,17 +6,23 @@
 #include "hardware/irq.h"
 #include <string>
 #include "pico/time.h"
+#include <pico/multicore.h>
+#include "hardware/regs/sio.h"
 
 // Initialize pointer to zero so that it can be initialized in first call to getInstance
 SNESController *SNESController::instance = 0;
 
 SNESController *SNESController::getInstance()
 {
-    if (instance == 0)
+    if (get_core_num() == 0)
     {
-        instance = new SNESController();
+        if (instance == 0)
+        {
+            instance = new SNESController();
+        }
+        return instance;
     }
-    return instance;
+    return 0;
 }
 
 SNESController::SNESController()
@@ -28,6 +34,7 @@ void SNESController::Setup(int latchPinInput, int clockPinInput, int dataPinInpu
 {
     dataPin = dataPinInput;
     clockPin = clockPinInput;
+    latchPin = latchPinInput;
     snesState = 0x00;
     gpio_init(dataPin);
     gpio_init(clockPin);
@@ -39,7 +46,10 @@ void SNESController::Setup(int latchPinInput, int clockPinInput, int dataPinInpu
     // Set up the latch pin as an input and enable the pull-down resistor
     gpio_set_dir(latchPinInput, GPIO_IN);
     gpio_pull_down(latchPinInput);
-    gpio_set_irq_enabled_with_callback(latchPinInput, GPIO_IRQ_EDGE_RISE, true, &SNESController::gpioIrqHandler);
+    gpio_set_irq_enabled(latchPinInput, GPIO_IRQ_EDGE_RISE, true);
+    gpio_set_irq_callback(&SNESController::gpioIrqHandler);
+    irq_set_enabled(IO_IRQ_BANK0, true);
+    irq_set_priority(IO_IRQ_BANK0,128);
 }
 void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
 {
@@ -55,7 +65,6 @@ void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
         {
             int buttonValue = (snesLatchedState & buttonOrder[i]) != 0;
             gpio_put(instance->dataPin, !buttonValue);
-            printf("Button %02d value: %d\n", i, !buttonValue);
         }
         else
         {
