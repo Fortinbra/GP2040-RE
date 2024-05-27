@@ -41,6 +41,8 @@ public:
     void Setup(int latchPin, int clockPinInput, int dataPinInput);
     void sendToSystem(GamepadState data);
     static void gpioIrqHandler(uint gpio, uint32_t events);
+    static void clockIRQ(uint gpio, uint32_t events);
+    static void latchIRQ(uint gpio, uint32_t events);
 
 private:
     SNESController();
@@ -49,6 +51,8 @@ private:
     uint clockPin;
     uint latchPin;
     uint16_t snesState;
+    int currentBit;
+    bool latchPinHigh;
 };
 
 #endif // SNESCONTROLLER_H

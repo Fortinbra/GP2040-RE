@@ -18,7 +18,6 @@ void I2CHandler::setup_slave()
 
 	i2c_init(i2c0, I2C_BAUDRATE);
 	i2c_slave_init(i2c0, I2C_SLAVE_ADDR, &i2c_slave_handler);
-	irq_set_priority(I2C0_IRQ, 64);
 }
 
 void I2CHandler::clearI2CBus()

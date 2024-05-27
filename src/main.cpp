@@ -48,15 +48,14 @@ int main()
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
     multicore_launch_core1(core1);
-
     snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
 
     while (true)
     {
         processI2CData();
-        if (i2cHandler.isBusStalled())
-        {
-            i2cHandler.clearI2CBus();
-        }
+        // if (i2cHandler.isBusStalled())
+        // {
+        //     i2cHandler.clearI2CBus();
+        // }
     };
 }
