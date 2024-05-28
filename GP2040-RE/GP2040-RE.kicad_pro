@@ -229,10 +229,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "multiple_net_names|292100|825500|1f4d7653-b939-4ce0-9102-23b9a01a7d42|cb55a11a-4959-4836-9a9c-c243da8470a4|/a96cfb7f-6bed-4153-aaa4-54dee894d684|/a96cfb7f-6bed-4153-aaa4-54dee894d684|/a96cfb7f-6bed-4153-aaa4-54dee894d684",
-      "pin_to_pin|355600|1625600|a18b5557-1be9-4a44-8de8-b078f29d4d34|7338691c-f987-4470-912c-0fa516054ee4|/a96cfb7f-6bed-4153-aaa4-54dee894d684|/a96cfb7f-6bed-4153-aaa4-54dee894d684|/a96cfb7f-6bed-4153-aaa4-54dee894d684"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -482,6 +479,23 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
+        "via_diameter": 0.508,
+        "via_drill": 0.254,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.127,
+        "diff_pair_gap": 0.127,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.127,
+        "line_style": 0,
+        "microvia_diameter": 0.4572,
+        "microvia_drill": 0.254,
+        "name": "D*",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.127,
         "via_diameter": 0.508,
         "via_drill": 0.254,
         "wire_width": 6
