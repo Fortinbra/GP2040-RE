@@ -14,15 +14,11 @@ SNESController *SNESController::instance = 0;
 
 SNESController *SNESController::getInstance()
 {
-    if (get_core_num() == 0)
+    if (instance == 0)
     {
-        if (instance == 0)
-        {
-            instance = new SNESController();
-        }
-        return instance;
+        instance = new SNESController();
     }
-    return 0;
+    return instance;
 }
 
 SNESController::SNESController()
@@ -44,21 +40,26 @@ void SNESController::Setup(int latchPinInput, int clockPinInput, int dataPinInpu
 
     // Set up the latch pin as an input and enable the pull-down resistor
     gpio_set_dir(latchPinInput, GPIO_IN);
-    gpio_pull_down(latchPinInput);
 
-    gpio_set_irq_enabled_with_callback(latchPin, GPIO_IRQ_EDGE_FALL, true, &SNESController::gpioIrqHandler);
+    gpio_set_irq_enabled_with_callback(latchPin, GPIO_IRQ_EDGE_RISE, true, &SNESController::gpioIrqHandler);
 }
 void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
 {
     // printf("Latch interrupt hit\n");
     int snesLatchedState = instance->snesState;
-    gpio_pull_up(instance->dataPin);
-    gpio_put(instance->dataPin, (snesLatchedState & buttonOrder[0]) != 0);
+
+    gpio_put(instance->dataPin, ((snesLatchedState & buttonOrder[0]) != 0));
     for (int i = 1; i < 16; i++)
     {
+        // Wait for the falling edge of the clock pin
+        while (gpio_get(instance->clockPin) == 1)
+        {
+            tight_loop_contents();
+        }
         // Wait for the rising edge of the clock pin
         while (gpio_get(instance->clockPin) == 0)
         {
+            tight_loop_contents();
         }
         // Set the data pin to the current bit value
         if (i < 12)
@@ -72,7 +73,7 @@ void SNESController::gpioIrqHandler(uint gpio, uint32_t events)
             gpio_put(instance->dataPin, 1);
         }
     }
-    gpio_pull_down(instance->dataPin);
+    gpio_put(instance->dataPin, 0);
 }
 void SNESController::sendToSystem(GamepadState data)
 {

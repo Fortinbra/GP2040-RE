@@ -533,7 +533,7 @@
       "plot": "Gerbers/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "GP2040-RE.step",
       "svg": "",
       "vrml": ""
     },
@@ -601,7 +601,7 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
