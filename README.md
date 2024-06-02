@@ -28,7 +28,7 @@ So this will be a breadboard edition.
 #### Required Materials
 
 - Raspberry Pi Pico
-- 3.3v-> level shifter
+- 3.3v-> 5v level shifter
   - must support open-drain signals
   - must be bi-directional
 - SNES controller cable
