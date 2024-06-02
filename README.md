@@ -17,6 +17,10 @@ The features required on the GP2040-CE side of this have not been released yet, 
 This project operates as a target I2C device. (Formerly called a slave device). At minimum a Raspberry Pi Pico is required. Pico W will not be supported, as wireless is not on the roadmap here, and we will be utilizing all the RP2040 pins eventually, not leaving any for the SPI bus required for wireless functions.
 A level shifter is used to bring the 3.3V logic of the Pico up to the 5V logic of the SNES (the only suppored retro console so far). A diode is necessary so that we can use the 5V line from the SNES as the reference voltage for the high side of the level shifter, and not accidentally backfeed anyting to the SNES. A pull up resistor is required on the Data line, as it's an open-drain, and should be normallly high. The SNES does have a 5V line that is documented to provide up to 25mA across both controller ports, and there are examples of devices utilizing that as a power source for similar projects to this. To be safe with the geriatric console, I'm opting for external power.
 
+### Firmware
+
+This document assumes you know how to build and flash your own firmware. All pin configurations are in [config.h](src/headers/config.h).
+
 ### Building your own
 
 So this will be a breadboard edition.
@@ -80,5 +84,14 @@ If you'd like to do UART monitoring, the button outputs can be seen using the UA
 - [ ] Dreamcast
   - VMU suppport
 
- ## Would be nice
- - Readily available connector with more than 8 pins, to support Sega, Atari, and NEOGEO consoles too.
+## Would be nice
+
+- Readily available connector with more than 8 pins, to support Sega, Atari, and NEOGEO consoles too.
+
+## Deeper Dive - SNES
+
+### Communication protocol
+
+The communication protocol on the SNES is based on a 4021 PISO shift register, and depending the manufacture date of the controller, it may physically have two shift registers in a chain, or one 16bit register. Ether way, the output is the same.
+
+When the Latch pin is high, it signals the shift register to start sending data according to the clock pulses. What is commonly documented incorrectly, is regarding the first data pulse. The data is sent as a low signal on the rising edge of the clock pin. However, when the latch is high at the beginning, the clock is also already high, so the first data pulse needs to begin immediatly. Overall, there will be 16 data pulses sent, the first twelve will be active low pulses representing the button state of the 12 buttons on the controller. The last 4 will be always high. On the trailing edge of the last clock pulse, the data will be pulled low one last time, before going back to it's default high state, and the cycle starts all over again. The entire report is done in 16.67ms. The button reports are always in the same order: B, Y, SELECT, START, UP, DOWN, LEFT, RIGHT, A, X, L, and R. The NES uses this same protocol, with a slightly different button order. A, B, SELECT, START, UP, DOWN, LEFT, and RIGHT
