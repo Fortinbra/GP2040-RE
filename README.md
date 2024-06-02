@@ -48,13 +48,13 @@ SNES Controller Connector:
       |                             |                      /
        ----------------------------- ---------------------
 
-1: Vcc (+5V)
-2: Clock
-3: Latch
-4: Data
-5: Not Connected
-6: Not Connected
-7: Ground
+1 Vcc (+5V)
+2 Clock
+3 Latch
+4 Data
+5 Not Connected
+6 Not Connected
+7 Ground
 
 #### Breadboarding at it's best
 
