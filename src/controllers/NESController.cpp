@@ -1,95 +1,121 @@
-#include <hardware/i2c.h>
-#include <pico/i2c_slave.h>
-#include <pico/stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "hardware/vreg.h"
-#include "hardware/clocks.h"
-#include "headers/I2CData.h"
 #include "headers/NESController.h"
 #include "headers/GamepadState.h"
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
+#include "hardware/irq.h"
+#include <string>
+#include "pico/time.h"
+#include <pico/multicore.h>
+#include "hardware/regs/sio.h"
 
-const uint8_t NES_BUTTON_A = 0x01;
-const uint8_t NES_BUTTON_B = 0x02;
-const uint8_t NES_BUTTON_SELECT = 0x04;
-const uint8_t NES_BUTTON_START = 0x08;
-const uint8_t NES_BUTTON_UP = 0x10;
-const uint8_t NES_BUTTON_DOWN = 0x20;
-const uint8_t NES_BUTTON_LEFT = 0x40;
-const uint8_t NES_BUTTON_RIGHT = 0x80;
+// Initialize pointer to zero so that it can be initialized in first call to getInstance
+NESController *NESController::instance = 0;
 
-NESController::NESController(int latchPin, int clockPin, int dataPin)
-    : latchPin(latchPin), clockPin(clockPin), dataPin(dataPin)
+NESController *NESController::getInstance()
 {
+    if (instance == 0)
+    {
+        instance = new NESController();
+    }
+    return instance;
 }
 
-uint16_t NESController::translateToFormat(GamepadState data)
+NESController::NESController()
 {
-    uint16_t nesPad = 0x00;
-    if (data.dpad & GAMEPAD_MASK_UP)
-    {
-        nesPad |= NES_BUTTON_UP;
-        uart_puts(uart0, "UP\n");
-    }
-    if (data.dpad & GAMEPAD_MASK_DOWN)
-    {
-        nesPad |= NES_BUTTON_DOWN;
-        uart_puts(uart0, "DOWN\n");
-    }
-    if (data.dpad & GAMEPAD_MASK_LEFT)
-    {
-        nesPad |= NES_BUTTON_LEFT;
-        uart_puts(uart0, "LEFT\n");
-    }
-    if (data.dpad & GAMEPAD_MASK_RIGHT)
-    {
-        nesPad |= NES_BUTTON_RIGHT;
-        uart_puts(uart0, "RIGHT\n");
-    }
-    if (data.buttons & GAMEPAD_MASK_B1)
-    {
-        nesPad |= NES_BUTTON_A;
-        uart_puts(uart0, "A\n");
-    }
-    if (data.buttons & GAMEPAD_MASK_B2)
-    {
-        nesPad |= NES_BUTTON_B;
-        uart_puts(uart0, "B\n");
-    }
-    if (data.buttons & GAMEPAD_MASK_S1)
-    {
-        nesPad |= NES_BUTTON_SELECT;
-        uart_puts(uart0, "SELECT\n");
-    }
-    if (data.buttons & GAMEPAD_MASK_S2)
-    {
-        nesPad |= NES_BUTTON_START;
-        uart_puts(uart0, "START\n");
-    }
-
-    // Combine the NES D-pad and buttons
-    uint16_t nesData = nesPad;
-
-    // Return the translated NES data
-    return nesData;
+    // constructor body
 }
 
+void NESController::Setup(int latchPinInput, int clockPinInput, int dataPinInput)
+{
+    dataPin = dataPinInput;
+    clockPin = clockPinInput;
+    latchPin = latchPinInput;
+    nesState = 0x00;
+    gpio_init(dataPin);
+    gpio_init(clockPin);
+
+    gpio_set_dir(dataPin, GPIO_OUT);
+    gpio_set_dir(clockPin, GPIO_IN);
+
+    // Set up the latch pin as an input and enable the pull-down resistor
+    gpio_set_dir(latchPinInput, GPIO_IN);
+
+    gpio_set_irq_enabled_with_callback(latchPin, GPIO_IRQ_EDGE_RISE, true, &NESController::gpioIrqHandler);
+}
+void NESController::gpioIrqHandler(uint gpio, uint32_t events)
+{
+    // printf("Latch interrupt hit\n");
+    int nesLatchedState = instance->nesState;
+
+    gpio_put(instance->dataPin, ((nesLatchedState & buttonOrder[0]) != 0));
+    for (int i = 1; i < 8; i++)
+    {
+        // Wait for the falling edge of the clock pin
+        while (gpio_get(instance->clockPin) == 1)
+        {
+            tight_loop_contents();
+        }
+        // Wait for the rising edge of the clock pin
+        while (gpio_get(instance->clockPin) == 0)
+        {
+            tight_loop_contents();
+        }
+        // Set the data pin to the current bit value
+        if (i < 12)
+        {
+            int buttonValue = (nesLatchedState & buttonOrder[i]) != 0;
+            gpio_put(instance->dataPin, buttonValue);
+        }
+        else
+        {
+            // Unknown buttons always report high
+            gpio_put(instance->dataPin, 1);
+        }
+    }
+    gpio_put(instance->dataPin, 0);
+}
 void NESController::sendToSystem(GamepadState data)
 {
-    uint16_t nesData = translateToFormat(data);
-
-    // Set the latch pin low to start the transmission
-    gpio_put(latchPin, 0);
-    // Shift out the data bits
-    for (int i = 0; i < 8; i++)
+    GamepadState gamepadState = data;
+    if ((gamepadState.dpad & GAMEPAD_MASK_UP) == GAMEPAD_MASK_UP)
     {
-        // Set the clock pin low
-        gpio_put(clockPin, 0);
-        // Set the data pin to the current bit value
-        gpio_put(dataPin, (nesData >> i) & 1);
-        // Set the clock pin high to shift the bit
-        gpio_put(clockPin, 1);
+        nesState |= NES_BUTTON_UP;
+        printf("UP\n");
     }
-    // Set the latch pin high to end the transmission
-    gpio_put(latchPin, 1);
+    if ((gamepadState.dpad & GAMEPAD_MASK_DOWN) == GAMEPAD_MASK_DOWN)
+    {
+        nesState |= NES_BUTTON_DOWN;
+        printf("DOWN\n");
+    }
+    if ((gamepadState.dpad & GAMEPAD_MASK_LEFT) == GAMEPAD_MASK_LEFT)
+    {
+        nesState |= NES_BUTTON_LEFT;
+        printf("LEFT\n");
+    }
+    if ((gamepadState.dpad & GAMEPAD_MASK_RIGHT) == GAMEPAD_MASK_RIGHT)
+    {
+        nesState |= NES_BUTTON_RIGHT;
+        printf("RIGHT\n");
+    }
+    if ((gamepadState.buttons & GAMEPAD_MASK_B1) == GAMEPAD_MASK_B1)
+    {
+        nesState |= NES_BUTTON_A;
+        printf("A\n");
+    }
+    if ((gamepadState.buttons & GAMEPAD_MASK_B2) == GAMEPAD_MASK_B2)
+    {
+        nesState |= NES_BUTTON_B;
+        printf("B\n");
+    }
+    if ((gamepadState.buttons & GAMEPAD_MASK_S1) == GAMEPAD_MASK_S1)
+    {
+        nesState |= NES_BUTTON_SELECT;
+        printf("SELECT\n");
+    }
+    if ((gamepadState.buttons & GAMEPAD_MASK_S2) == GAMEPAD_MASK_S2)
+    {
+        nesState |= NES_BUTTON_START;
+        printf("START\n");
+    }
 }
