@@ -20,17 +20,17 @@
     "terminal.integrated.env.windows": {
         "PICO_SDK_PATH": "${env:USERPROFILE}/.pico-sdk/sdk/1.5.1",
         "PICO_TOOLCHAIN_PATH": "${env:USERPROFILE}/.pico-sdk/toolchain/13_2_Rel1",
-        "Path": "${env:USERPROFILE}/.pico-sdk/toolchain/13_2_Rel1/bin;${env:USERPROFILE}/.pico-sdk/cmake/v3.28.0-rc6/bin;${env:USERPROFILE}/.pico-sdk/ninja/v1.11.1;${env:PATH}"
+        "Path": "${env:USERPROFILE}/.pico-sdk/toolchain/13_2_Rel1/bin;${env:USERPROFILE}/.pico-sdk/cmake/v3.28.0-rc6/bin;${env:USERPROFILE}/.pico-sdk/ninja/v1.12.1"
     },
     "terminal.integrated.env.osx": {
         "PICO_SDK_PATH": "${env:HOME}/.pico-sdk/sdk/1.5.1",
         "PICO_TOOLCHAIN_PATH": "${env:HOME}/.pico-sdk/toolchain/13_2_Rel1",
-        "PATH": "${env:HOME}/.pico-sdk/toolchain/13_2_Rel1/bin:${env:HOME}/.pico-sdk/cmake/v3.28.0-rc6/bin:${env:HOME}/.pico-sdk/ninja/v1.11.1:${env:PATH}"
+        "PATH": "${env:USERPROFILE}/.pico-sdk/toolchain/13_2_Rel1/bin:${env:HOME}/.pico-sdk/cmake/v3.28.0-rc6/bin:${env:HOME}/.pico-sdk/ninja/v1.12.1"
     },
     "terminal.integrated.env.linux": {
         "PICO_SDK_PATH": "${env:HOME}/.pico-sdk/sdk/1.5.1",
         "PICO_TOOLCHAIN_PATH": "${env:HOME}/.pico-sdk/toolchain/13_2_Rel1",
-        "PATH": "${env:HOME}/.pico-sdk/toolchain/13_2_Rel1/bin:${env:HOME}/.pico-sdk/cmake/v3.28.0-rc6/bin:${env:HOME}/.pico-sdk/ninja/v1.11.1:${env:PATH}"
+        "PATH": "${env:USERPROFILE}/.pico-sdk/toolchain/13_2_Rel1/bin:${env:HOME}/.pico-sdk/cmake/v3.28.0-rc6/bin:${env:HOME}/.pico-sdk/ninja/v1.12.1"
     },
     "raspberry-pi-pico.cmakeAutoConfigure": true,
     "raspberry-pi-pico.useCmakeTools": false,
