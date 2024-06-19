@@ -14,7 +14,6 @@
 #include "hardware/uart.h"
 #include <cstdlib>
 #include "headers/config.h"
-#include "headers/Console.h"
 #include "headers/I2CHandler.h"
 
 SNESController *snes = SNESController::getInstance();
