@@ -20,6 +20,7 @@ const uint16_t N64_BUTTON_C_RIGHT = 0x0001;
 
 #define JOYSTICK_X_MASK 0x00FF // Last 8 bits
 #define JOYSTICK_Y_MASK 0xFF00 // Second to last 8 bits
+#define PULSE_LENGTH_THRESHOLD 4
 
 enum N64Command
 {
@@ -48,11 +49,11 @@ private:
 	int scaleJoystick(int gamepadValue);
 	uint8_t reverseBits(uint8_t num);
 	void listenForCommands();
-	uint8_t receiveCommand();
 	void resetController();
 	void sendControllerInfo();
 	void sendControllerState();
 	void sendToSystem(uint8_t data);
+	uint8_t N64::readByte()
 };
 
 #endif // N64_H

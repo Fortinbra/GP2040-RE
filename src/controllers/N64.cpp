@@ -111,9 +111,21 @@ void N64::listenForCommands()
 		sleep_us(2);
 		if (gpio_get(dataPin) == 0)
 			continue;
+		// Initialize an empty buffer to store the command and data bytes
+		std::vector<uint8_t> buffer;
 
-		// Receive the command
-		uint8_t command = receiveCommand();
+		// Read the command byte
+		uint8_t command = readByte();
+
+		// Store the command byte in the buffer
+		buffer.push_back(command);
+
+		// Continue reading and storing bytes in the buffer until the STOP bit is encountered
+		while (gpio_get(dataPin) != 1)
+		{
+			uint8_t data = readByte();
+			buffer.push_back(data);
+		}
 
 		// Respond to the command
 		switch (command)
@@ -151,6 +163,46 @@ void N64::listenForCommands()
 			break;
 		}
 	}
+}
+uint8_t N64::readByte()
+{
+	uint8_t value = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		// Measure the duration of the low period
+		auto start = std::chrono::high_resolution_clock::now();
+		while (gpio_get(dataPin) == 0)
+		{
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto low_duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+
+		// Measure the duration of the high period
+		start = std::chrono::high_resolution_clock::now();
+		while (gpio_get(dataPin) == 1)
+		{
+		}
+		end = std::chrono::high_resolution_clock::now();
+		auto high_duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+
+		// Check the durations to determine the bit value
+		if (low_duration == 3 && high_duration == 1)
+		{
+			// It's a 0
+			value |= (0 << i);
+		}
+		else if (low_duration == 1 && high_duration == 3)
+		{
+			// It's a 1
+			value |= (1 << i);
+		}
+		else if (low_duration == 1 && high_duration == 2)
+		{
+			// It's a STOP bit
+			break;
+		}
+	}
+	return value;
 }
 void N64::sendToSystem(uint8_t data)
 {

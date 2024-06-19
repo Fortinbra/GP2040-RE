@@ -262,6 +262,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -274,6 +275,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -286,6 +288,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -512,6 +515,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -524,6 +528,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -536,6 +541,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1149,6 +1155,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1161,6 +1168,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1173,6 +1181,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1399,6 +1408,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1411,6 +1421,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1423,6 +1434,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1675,6 +1687,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1687,6 +1700,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1699,6 +1713,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1925,6 +1940,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1937,6 +1953,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1949,6 +1966,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2175,6 +2193,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2187,6 +2206,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2199,6 +2219,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2399,6 +2420,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2411,6 +2433,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2423,6 +2446,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2650,6 +2674,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2662,6 +2687,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2674,6 +2700,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2761,6 +2788,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2773,6 +2801,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2785,6 +2814,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3011,6 +3041,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3023,6 +3054,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3035,6 +3067,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3235,6 +3268,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3247,6 +3281,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3259,6 +3294,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3485,6 +3521,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3497,6 +3534,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3509,6 +3547,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3735,6 +3774,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3747,6 +3787,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3759,6 +3800,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3986,6 +4028,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -3998,6 +4041,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4010,6 +4054,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4097,6 +4142,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4109,6 +4155,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4121,6 +4168,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4347,6 +4395,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4359,6 +4408,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4371,6 +4421,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4597,6 +4648,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4609,6 +4661,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4621,6 +4674,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4847,6 +4901,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4859,6 +4914,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -4871,6 +4927,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5350,6 +5407,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5362,6 +5420,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5374,6 +5433,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5600,6 +5660,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5612,6 +5673,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5624,6 +5686,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5850,6 +5913,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5862,6 +5926,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -5874,6 +5939,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6100,6 +6166,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6112,6 +6179,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6124,6 +6192,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6350,6 +6419,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6362,6 +6432,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6374,6 +6445,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6598,6 +6670,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6610,6 +6683,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6622,6 +6696,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6981,6 +7056,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6993,6 +7069,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -7005,6 +7082,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -7246,6 +7324,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -7258,6 +7337,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -7270,6 +7350,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10656,6 +10737,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10668,6 +10750,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10680,6 +10763,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10906,6 +10990,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10918,6 +11003,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -10930,6 +11016,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11409,6 +11496,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11421,6 +11509,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11433,6 +11522,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11659,6 +11749,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11671,6 +11762,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -11683,6 +11775,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12051,6 +12144,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12063,6 +12157,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12075,6 +12170,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12301,6 +12397,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12313,6 +12410,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12325,6 +12423,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12725,6 +12824,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12737,6 +12837,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12749,6 +12850,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12975,6 +13077,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12987,6 +13090,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -12999,6 +13103,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13700,6 +13805,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13712,6 +13818,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13724,6 +13831,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13911,6 +14019,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13923,6 +14032,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -13935,6 +14045,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14255,6 +14366,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14267,6 +14379,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14279,6 +14392,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14625,6 +14739,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14637,6 +14752,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14649,6 +14765,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14875,6 +14992,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14887,6 +15005,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -14899,6 +15018,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15125,6 +15245,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15137,6 +15258,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15149,6 +15271,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15375,6 +15498,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15387,6 +15511,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15399,6 +15524,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15785,6 +15911,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15797,6 +15924,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -15809,6 +15937,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16036,6 +16165,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16048,6 +16178,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16060,6 +16191,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16147,6 +16279,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16159,6 +16292,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16171,6 +16305,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16589,6 +16724,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16601,6 +16737,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16613,6 +16750,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17764,6 +17902,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17776,6 +17915,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17788,6 +17928,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17974,6 +18115,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17986,6 +18128,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17998,6 +18141,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18301,6 +18445,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18313,6 +18458,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18325,6 +18471,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18607,6 +18754,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18619,6 +18767,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -18631,6 +18780,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19041,6 +19191,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19053,6 +19204,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19065,6 +19217,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19477,6 +19630,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19489,6 +19643,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19501,6 +19656,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19881,6 +20037,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19893,6 +20050,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -19905,6 +20063,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20131,6 +20290,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20143,6 +20303,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20155,6 +20316,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20635,6 +20797,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20647,6 +20810,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20659,6 +20823,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20746,6 +20911,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20758,6 +20924,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20770,6 +20937,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -20996,6 +21164,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -21008,6 +21177,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -21020,6 +21190,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -41202,20 +41373,20 @@
 		(uuid "661c4658-ec90-408f-b814-3f2201113537")
 	)
 	(segment
+		(start 132.75 82.165)
+		(end 131.2486 83.6664)
+		(width 0.1778)
+		(layer "F.Cu")
+		(net 2)
+		(uuid "6ff072f9-dbd3-4539-a61d-58944f439962")
+	)
+	(segment
 		(start 132.045 87.64)
 		(end 131.614999 88.070001)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 2)
 		(uuid "707b2f96-d32c-4cda-98ef-ae3cb159a453")
-	)
-	(segment
-		(start 128.686401 83.07)
-		(end 128.090001 83.6664)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "77b96674-5867-413b-a085-60d2943bd4ef")
 	)
 	(segment
 		(start 126.489999 83.23)
@@ -41336,14 +41507,6 @@
 		(layer "F.Cu")
 		(net 2)
 		(uuid "967d7afc-247e-4cdd-9379-a952e4c91a38")
-	)
-	(segment
-		(start 132.75 82.165)
-		(end 131.845 83.07)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "9e24b3d8-d03c-426e-9ce3-35563288926d")
 	)
 	(segment
 		(start 110.63405 72.92)
@@ -41514,6 +41677,14 @@
 		(uuid "e53c6ede-e384-47aa-9861-43b4606dbf00")
 	)
 	(segment
+		(start 131.2486 83.6664)
+		(end 128.090001 83.6664)
+		(width 0.1778)
+		(layer "F.Cu")
+		(net 2)
+		(uuid "e82c59fe-60ae-4dfb-a7fe-17e52b6cdb29")
+	)
+	(segment
 		(start 112.25 93.15)
 		(end 112.26 93.16)
 		(width 0.1778)
@@ -41592,14 +41763,6 @@
 		(layer "F.Cu")
 		(net 2)
 		(uuid "fbaf6071-3b11-4bc7-b174-47b183d2015e")
-	)
-	(segment
-		(start 131.845 83.07)
-		(end 128.686401 83.07)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "fe75cf74-8130-48eb-b605-085b61be60c0")
 	)
 	(segment
 		(start 106.539299 87.039999)
@@ -41714,14 +41877,6 @@
 		(uuid "ec5b0a20-6890-4298-bdff-609806b818f3")
 	)
 	(segment
-		(start 128.36 81.43)
-		(end 129.035 81.43)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 3)
-		(uuid "0bc6db9c-d0d0-4c89-b410-744f78c336f0")
-	)
-	(segment
 		(start 125.53 82.5)
 		(end 125.53 80.415)
 		(width 0.1778)
@@ -41746,20 +41901,12 @@
 		(uuid "177b38ab-efca-4834-adaa-e66a4445389f")
 	)
 	(segment
-		(start 129.035 81.43)
-		(end 129.765 82.16)
+		(start 127.689999 83.130001)
+		(end 128.66 82.16)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 3)
-		(uuid "33fa5596-f65b-4b6f-8a48-c93878e749e8")
-	)
-	(segment
-		(start 127.689999 83.6664)
-		(end 127.689999 82.100001)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 3)
-		(uuid "3c5a10ca-0eda-4bef-898d-58aead5799f3")
+		(uuid "3441c198-49db-4dae-823b-dd3703ff2f0c")
 	)
 	(segment
 		(start 126.22 93.865)
@@ -41794,12 +41941,12 @@
 		(uuid "a76d26e4-acd2-4b0c-8231-52292a2fc02a")
 	)
 	(segment
-		(start 127.689999 82.100001)
-		(end 128.36 81.43)
+		(start 127.689999 83.6664)
+		(end 127.689999 83.130001)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 3)
-		(uuid "b4b6c742-c7a3-4574-a5c4-f8b46f6e0909")
+		(uuid "b1944b32-e0a4-4413-944e-e8455361b33d")
 	)
 	(segment
 		(start 126.489999 90.4736)
@@ -41840,6 +41987,14 @@
 		(layer "F.Cu")
 		(net 3)
 		(uuid "ec587a1a-4ac8-4b30-8cd7-6de69ee52bfb")
+	)
+	(segment
+		(start 128.66 82.16)
+		(end 129.765 82.16)
+		(width 0.1778)
+		(layer "F.Cu")
+		(net 3)
+		(uuid "f9bb36ec-3b3b-4d0d-a6f8-16163414fdb9")
 	)
 	(via
 		(at 126.49 89.61)
@@ -42698,28 +42853,12 @@
 		(uuid "f5c573b3-7de0-4c88-ba53-60548dd732ed")
 	)
 	(segment
-		(start 130.68 99.29)
-		(end 130.68 98.6816)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "0d1047ea-ae87-4cb6-be69-74a7679a9d2c")
-	)
-	(segment
-		(start 127.124498 94.64)
-		(end 127.3173 94.447198)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "16e09531-3719-4692-a8d5-b25c3447c19f")
-	)
-	(segment
 		(start 129.6383 98.2483)
 		(end 127.3173 95.9273)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "2c68653d-97c0-4770-9d29-971eef1a1a47")
+		(uuid "4a949945-44d9-40ee-b9dc-bf70916251b0")
 	)
 	(segment
 		(start 130.2467 98.2483)
@@ -42727,15 +42866,23 @@
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "374f8415-17df-47b1-9775-fca64dfc39b1")
+		(uuid "62656a6d-a3c0-4752-afbe-7de0f00bf06c")
 	)
 	(segment
-		(start 127.201199 93.166701)
-		(end 127.201199 91.088207)
+		(start 130.68 99.29)
+		(end 130.68 98.6816)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "3c58a753-5e21-4b18-aaaa-681302f69711")
+		(uuid "bab5e277-10ec-4738-9fa2-45b8a5ec0625")
+	)
+	(segment
+		(start 127.3173 95.9273)
+		(end 127.3173 90.5009)
+		(width 0.1778)
+		(layer "F.Cu")
+		(net 10)
+		(uuid "ce67e289-602e-4149-8da1-a698c5d443f1")
 	)
 	(segment
 		(start 130.68 98.6816)
@@ -42743,167 +42890,55 @@
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "450a9a71-a3be-4437-b393-d00815646213")
+		(uuid "dd4f10fe-11fa-434d-a119-2689e7e84801")
 	)
 	(segment
-		(start 127.3173 94.447198)
-		(end 127.3173 93.282802)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "482b8852-619a-47c6-af99-3d4de346ffcc")
-	)
-	(segment
-		(start 127.3173 93.282802)
-		(end 127.201199 93.166701)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "4da7e489-3876-462a-8655-61def01eba7d")
-	)
-	(segment
-		(start 127.201199 91.088207)
-		(end 127.29 90.999406)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "6a88f1c6-1c0f-4326-a2c4-e991c777ff22")
-	)
-	(segment
-		(start 127.29 90.999406)
+		(start 127.3173 90.5009)
 		(end 127.29 90.4736)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 10)
-		(uuid "8027ef0c-2320-4e65-b0dc-95faafd2402e")
+		(uuid "fe50be56-fbbf-4d51-9d00-fb61e72e068c")
 	)
 	(segment
-		(start 127.3173 94.832802)
-		(end 127.124498 94.64)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "f1bfcf97-b3bc-4ff3-839e-2ee4ad548f2c")
-	)
-	(segment
-		(start 127.3173 95.9273)
-		(end 127.3173 94.832802)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 10)
-		(uuid "f71806fd-5497-4a42-a8cb-6fc789fe8233")
-	)
-	(segment
-		(start 126.693993 96.117611)
-		(end 126.9617 95.849904)
+		(start 126.9617 91.4017)
+		(end 126.890001 91.330001)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 11)
-		(uuid "01850d9e-1f79-43fb-8023-41df6d274e72")
+		(uuid "2f8a2a8b-71f4-48db-866b-ef5462dcfd6c")
 	)
 	(segment
-		(start 126.845599 93.313995)
-		(end 126.845599 90.518002)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "0bc64ec7-7a83-47c3-8c5e-31c7d1ff4c48")
-	)
-	(segment
-		(start 126.9617 95.849904)
-		(end 126.9617 94.980096)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "0c9e50eb-3615-4e8b-8150-2eb6c112b6a0")
-	)
-	(segment
-		(start 126.845599 90.518002)
+		(start 126.890001 91.330001)
 		(end 126.890001 90.4736)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 11)
-		(uuid "1beb991b-c5e1-4027-8877-b0e73caeec08")
-	)
-	(segment
-		(start 126.7407 96.164318)
-		(end 126.693993 96.117611)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "40f2d3b7-0e89-47f0-a47f-9bf7df159792")
-	)
-	(segment
-		(start 126.69 94.708396)
-		(end 126.69 94.571604)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "5e8b9b5a-6849-4428-aa20-b215ffd18a9a")
+		(uuid "7b90853d-23b4-4056-b1e1-30f0451ab2b9")
 	)
 	(segment
 		(start 128.68 99.29)
-		(end 126.69 97.3)
+		(end 128.68 97.792894)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 11)
-		(uuid "69e9a1c0-84f2-472d-a7b7-cc9227da7267")
+		(uuid "81f72a4d-2da9-4acd-a6f5-c407f3f19733")
 	)
 	(segment
-		(start 126.9617 93.430096)
-		(end 126.845599 93.313995)
+		(start 128.68 97.792894)
+		(end 126.9617 96.074594)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 11)
-		(uuid "7f8dee9c-1a34-404d-ad45-4653a89bea75")
+		(uuid "e7729583-ec0e-4bd3-9266-89fbeed057e5")
 	)
 	(segment
-		(start 126.69 96.646382)
-		(end 126.7407 96.595682)
+		(start 126.9617 96.074594)
+		(end 126.9617 91.4017)
 		(width 0.1778)
 		(layer "F.Cu")
 		(net 11)
-		(uuid "9fadbd7d-9a45-41db-88f2-854366349b4b")
-	)
-	(segment
-		(start 126.7407 96.595682)
-		(end 126.7407 96.164318)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "cd5a250c-db88-4304-84ab-717231f47edc")
-	)
-	(segment
-		(start 126.69 97.3)
-		(end 126.69 96.646382)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "e36dfaaf-f7fb-4087-9c1b-425f9613a056")
-	)
-	(segment
-		(start 126.9617 94.299904)
-		(end 126.9617 93.430096)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "e4216635-507b-4b67-9805-0631b79f65d6")
-	)
-	(segment
-		(start 126.69 94.571604)
-		(end 126.9617 94.299904)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "e9790475-1595-42be-8574-e4b0c5a820d1")
-	)
-	(segment
-		(start 126.9617 94.980096)
-		(end 126.69 94.708396)
-		(width 0.1778)
-		(layer "F.Cu")
-		(net 11)
-		(uuid "ea1cad15-4572-4e56-8729-42efb684d75d")
+		(uuid "ea7972bd-14bb-4398-af65-240cb2ca7ea7")
 	)
 	(segment
 		(start 134.2 75.075)
