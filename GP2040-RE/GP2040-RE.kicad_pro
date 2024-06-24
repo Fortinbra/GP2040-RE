@@ -541,6 +541,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
+    "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -727,14 +728,6 @@
     [
       "a96cfb7f-6bed-4153-aaa4-54dee894d684",
       "Root"
-    ],
-    [
-      "5e256e19-1760-48fe-b08a-896bdf12d986",
-      "PowerManagement"
-    ],
-    [
-      "010e66af-3c51-4db9-b4a7-67e11e68c9dc",
-      "NES_SNES"
     ]
   ],
   "text_variables": {}

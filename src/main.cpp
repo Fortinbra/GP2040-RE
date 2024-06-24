@@ -47,7 +47,7 @@ int main()
     gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
     multicore_launch_core1(core1);
-    snes->Setup(GREEN_ETHERNET_PIN, BROWN_ETHERNET_PIN, BLUE_ETHERNET_PIN);
+    snes->Setup(BROWN_STRIPE_ETHERNET_PIN, ORANGE_ETHERNET_PIN, BLUE_ETHERNET_PIN);
     printf("Hello!\n");
     while (true)
     {

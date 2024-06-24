@@ -7,12 +7,14 @@
 #define UART_RX_PIN 1
 
 //Ethernet Connections
-#define GREEN_STRIPE_ETHERNET_PIN 2
-#define BLUE_ETHERNET_PIN 3
-#define BLUE_STRIPE_ETHERNET_PIN 4
-#define GREEN_ETHERNET_PIN 5
-#define BROWN_STRIPE_ETHERNET_PIN 6
-#define BROWN_ETHERNET_PIN 7
+// Orange Strip is the GND connection.
+#define ORANGE_ETHERNET_PIN 2
+#define GREEN_STRIPE_ETHERNET_PIN 3
+#define BLUE_ETHERNET_PIN 4
+#define BLUE_STRIPE_ETHERNET_PIN 5
+#define GREEN_ETHERNET_PIN 6
+#define BROWN_STRIPE_ETHERNET_PIN 7
+// Brown is the +V connection.
 
 #define SPI_PORT 1
 #define SPI_BAUDRATE 
