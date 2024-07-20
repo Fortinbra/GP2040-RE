@@ -7,9 +7,7 @@
 #include "hardware/clocks.h"
 #include "headers/GamepadState.h"
 #include "headers/I2CData.h"
-#include "headers/NESController.h"
 #include "headers/SNESController.h"
-#include "headers/N64.h"
 #include <pico/multicore.h>
 #include "hardware/uart.h"
 #include <cstdlib>
