@@ -1,0 +1,184 @@
+(footprint "Adafruit TCA4307 Hot-Swap I2C Buffer with Stuck Bus Recovery - STEMMA QT  Qwiic"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "f56fe99c-1edd-4a89-ac90-7209c19a0e97")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Adafruit TCA4307 Hot-Swap I2C Buffer with Stuck Bus Recovery - STEMMA QT  Qwiic"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "d9ba88fe-c4d0-4fef-9e7a-b560298bd82b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4153433d-ce7f-4427-bba0-742c7184e2e2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "135c5ae4-29ca-4662-a289-b6f55e6ca93a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c0554326-5871-4807-8ad5-799bed54edc8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "9bc4b6a9-1dca-4784-8b94-488da7b82fc7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -5.08 5.08)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "28dbcd35-911c-4103-877d-11e89aa3f020")
+	)
+	(pad "2" thru_hole circle
+		(at -5.08 7.62)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7e0186c2-ad5d-492b-9089-17aff7445f78")
+	)
+	(pad "3" thru_hole circle
+		(at -5.08 10.16)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "3809744b-b082-4b85-bca5-265c8aecf965")
+	)
+	(pad "4" thru_hole circle
+		(at -5.08 12.7)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "4a2ec87f-2fc5-429e-903a-fe51b589c82d")
+	)
+	(pad "5" thru_hole circle
+		(at -5.08 15.24)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "55f68332-9c48-49cd-be2f-d5f9029380e7")
+	)
+	(pad "6" thru_hole circle
+		(at -5.08 17.78)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "5c2ab6e9-8b39-4d5a-85e8-dd491583c5af")
+	)
+	(pad "7" thru_hole circle
+		(at 7.62 7.62)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "dcf6d81a-aa4f-44af-afd3-8327eaad9a01")
+	)
+	(pad "8" thru_hole circle
+		(at 7.62 10.16)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "fc75b121-0579-4dcd-add5-d45b89aa73b2")
+	)
+	(pad "9" thru_hole circle
+		(at 7.62 12.7)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "b7ab26c9-110a-40d2-b219-82e6b0063ae7")
+	)
+	(pad "10" thru_hole circle
+		(at 7.62 15.24)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ed25ddb5-1a48-474f-9bb9-5ebd7776e8af")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x06_P2.54mm_Vertical.step"
+		(offset
+			(xyz -5 -5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x04_P2.54mm_Vertical.step"
+		(offset
+			(xyz 7.5 -7.5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

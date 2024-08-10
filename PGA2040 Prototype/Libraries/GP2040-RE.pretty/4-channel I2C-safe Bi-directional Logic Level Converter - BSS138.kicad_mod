@@ -1,0 +1,200 @@
+(footprint "4-channel I2C-safe Bi-directional Logic Level Converter - BSS138"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "33cd381c-f1de-436a-945f-232f19303f74")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "4-channel I2C-safe Bi-directional Logic Level Converter - BSS138"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "5d2e8323-1155-47a8-b827-aa50f3e28e6f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c89e02a4-500a-4449-81a4-276c1627abfa")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "16a514e3-dee5-454c-88e7-aa088ae8c5d0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9eed0e83-1e9c-4bf1-becc-4003b6f85579")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "853c9cc9-60db-4036-9195-4f4a3c0acebd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -5.08 5.08)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "05ee4eb9-350a-4500-8b6c-1d5501df7771")
+	)
+	(pad "2" thru_hole circle
+		(at -5.08 7.62)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "08fa3320-add7-4020-875a-fbf6ca7d4722")
+	)
+	(pad "3" thru_hole circle
+		(at -5.08 10.16)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "a8b0b35a-208e-4f35-afc4-7e8b8ee0bcdc")
+	)
+	(pad "4" thru_hole circle
+		(at -5.08 12.7)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2b487235-03f1-4535-b66a-31c3fb88592f")
+	)
+	(pad "5" thru_hole circle
+		(at -5.08 15.24)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "97aad817-7a21-40d7-9f45-9c00458cb48c")
+	)
+	(pad "6" thru_hole circle
+		(at -5.08 17.78)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "063b4ea7-45d7-4648-81db-a80c340de2c1")
+	)
+	(pad "7" thru_hole circle
+		(at 5.08 5.08)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2a523e72-964a-4abf-9140-aa0ca0fe0924")
+	)
+	(pad "8" thru_hole circle
+		(at 5.08 7.62)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "896a132a-7149-457b-bc03-95f3baf4a218")
+	)
+	(pad "9" thru_hole circle
+		(at 5.08 10.16)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "0c13b206-5368-4eef-b5af-c84cea2a712d")
+	)
+	(pad "10" thru_hole circle
+		(at 5.08 12.7)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "da9bc917-c88c-4cbb-993c-ee66f4bd29fb")
+	)
+	(pad "11" thru_hole circle
+		(at 5.08 15.24)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d2bc9c9d-5f48-4dfb-9082-c309a537027b")
+	)
+	(pad "12" thru_hole circle
+		(at 5.08 17.78)
+		(size 1.524 1.524)
+		(drill 0.762)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7ec9b2e1-c275-49c4-9618-ff9eb0648ebb")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x06_P2.54mm_Vertical.step"
+		(offset
+			(xyz -5 -5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x06_P2.54mm_Vertical.step"
+		(offset
+			(xyz 5 -5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
