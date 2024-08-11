@@ -95,3 +95,7 @@ If you'd like to do UART monitoring, the button outputs can be seen using the UA
 The communication protocol on the SNES is based on a 4021 PISO shift register, and depending the manufacture date of the controller, it may physically have two shift registers in a chain, or one 16bit register. Ether way, the output is the same.
 
 When the Latch pin is high, it signals the shift register to start sending data according to the clock pulses. What is commonly documented incorrectly, is regarding the first data pulse. The data is sent as a low signal on the rising edge of the clock pin. However, when the latch is high at the beginning, the clock is also already high, so the first data pulse needs to begin immediatly. Overall, there will be 16 data pulses sent, the first twelve will be active low pulses representing the button state of the 12 buttons on the controller. The last 4 will be always high. On the trailing edge of the last clock pulse, the data will be pulled low one last time, before going back to it's default high state, and the cycle starts all over again. The entire report is done in 16.67ms. The button reports are always in the same order: B, Y, SELECT, START, UP, DOWN, LEFT, RIGHT, A, X, L, and R. The NES uses this same protocol, with a slightly different button order. A, B, SELECT, START, UP, DOWN, LEFT, and RIGHT
+
+
+
+https://buymeacoffee.com/fortinbra
